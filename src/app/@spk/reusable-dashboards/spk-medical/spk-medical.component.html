@@ -1,0 +1,23 @@
+
+    <div class="card custom-card position-relative rounded-md overflow-hidden">
+      <div class="card-body">
+        <h5 class="mb-1ld">{{ value }}</h5>
+        <div class="fw-medium op-7">
+          {{ label }}
+          <span class="fw-normal ms-1 badge fs-9" [ngClass]="percentageClass">
+            {{ percentage }}
+            @if(percentageClass.includes('danger')){
+
+                <i class="ri-arrow-down-s-fill"></i>
+            }
+            @if(percentageClass.includes('success')){
+
+                <i class="ri-arrow-up-s-fill" ></i>
+            }
+          </span>
+        </div>
+        <div [innerHTML]="icon"></div>
+      
+      </div>
+    </div>
+  

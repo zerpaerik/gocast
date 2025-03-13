@@ -1,0 +1,56 @@
+<app-page-header title="Treemap Charts" title1="Apex Charts" activeTitle="Treemap Charts" ></app-page-header>
+
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Basic Treemap Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="treemap-basic">
+                    <app-apex-chart  [chartOptions]="chartOptions"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Multi Dimensional Treemap Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="treemap-multi">
+                    <app-apex-chart  [chartOptions]="chartOptions1"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Distributed Treemap Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="treemap-distributed">
+                    <app-apex-chart  [chartOptions]="chartOptions2"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Treemap with color ranges</div>
+            </div>
+            <div class="card-body">
+                <div id="treemap-colorranges">
+                    <app-apex-chart  [chartOptions]="chartOptions3"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

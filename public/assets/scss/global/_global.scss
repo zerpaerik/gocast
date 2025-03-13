@@ -1,0 +1,449 @@
+@use "../variables";
+.NgxEditor__MenuBar,.NgxEditor,.NgxEditor__Popup--Col input,
+.angular-editor-toolbar,
+.angular-editor-toolbar .angular-editor-toolbar-set .angular-editor-button,
+.ae-font .ae-picker-label{
+  background-color: variables.$custom-white !important;
+  color: variables.$default-text-color !important;
+  border-color: variables.$default-border !important;
+}
+.NgxEditor__Wrapper .NgxEditor__MenuBar{
+  border-bottom: 1px solid var(--default-border) !important;
+}
+.NgxEditor__MenuItem .NgxEditor__MenuItem--Icon:hover,
+.NgxEditor__MenuItem.NgxEditor__MenuItem--Active, .NgxEditor__MenuItem .NgxEditor__MenuItem--Active,
+.NgxEditor__Dropdown .NgxEditor__Dropdown--Selected, .NgxEditor__Dropdown .NgxEditor__Dropdown--Open,
+.NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu,.NgxEditor__Dropdown .NgxEditor__Dropdown--DropdownMenu,
+.NgxEditor__Dropdown .NgxEditor__Dropdown--Item:hover,
+.NgxEditor__Popup{
+  background-color:variables.$light !important;
+}
+.NgxEditor__Wrapper,.angular-editor .angular-editor-wrapper .angular-editor-textarea{
+  border-color: variables.$default-border !important;
+}
+.NgxEditor__Seperator{
+  border-inline-start-color: variables.$default-border !important;
+}
+.NgxEditor__Wrapper .NgxEditor {
+    height: 197px !important;
+}
+.ae-font .ae-picker-options{
+  background-color:variables.$light !important;
+  color: variables.$default-text-color !important;
+  border-color: variables.$default-border !important;
+}
+.ae-font .ae-picker-options .ae-picker-item{
+  color: variables.$default-text-color !important;
+
+}
+.ae-font .ae-picker-options .ae-picker-item.focused, .ae-font .ae-picker-options .ae-picker-item:hover{
+  background-color: variables.$primary !important;
+  color: white !important;
+}
+.ae-font .ae-picker-label svg .ae-stroke {
+  stroke: var(--default-text-color) !important;
+}
+[data-theme-mode=dark] .NgxEditor__Dropdown:hover, [data-theme-mode=dark] .NgxEditor__Dropdown .NgxEditor__Dropdown--Active {
+  background-color: var(--custom-white) !important;
+}
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+  color: var(--default-text-color) !important;
+}
+
+// Angular Calendar
+.cal-month-view {
+  background-color: var(--custom-white) !important;
+}
+.cal-month-view {
+  background-color: variables.$custom-white !important;
+}
+.cal-month-view .cal-day-cell:not(:last-child) {
+  border-right-color: variables.$default-border !important;
+}
+.cal-month-view .cal-days .cal-cell-row {
+  border-bottom-color: variables.$default-border !important;
+}
+.cal-month-view .cal-days {
+  border-color: variables.$default-border;
+}
+.cal-month-view .cal-cell-row .cal-cell:hover,
+.cal-month-view .cal-cell-row:hover {
+  background-color: variables.$light !important;
+}
+.cal-week-view {
+  background-color: variables.$custom-white !important;
+  border-top: 1px solid variables.$default-border !important;
+}
+.cal-week-view .cal-hour:not(:last-child) .cal-hour-segment, .cal-week-view .cal-hour:last-child :not(:last-child) .cal-hour-segment {
+  border-bottom-color: variables.$default-border !important;
+}
+.cal-week-view .cal-hour-odd {
+  background-color:  variables.$custom-white !important;
+}
+.cal-week-view .cal-time-events {
+  border-color:  variables.$default-border !important;
+}
+.cal-week-view .cal-day-headers .cal-header:not(:last-child) {
+  border-right-color:  variables.$default-border !important;
+}
+.cal-week-view .cal-day-column {
+  border-left-color: variables.$default-border !important;
+}
+.cal-week-view .cal-day-headers .cal-header:first-child {
+  border-left-color: variables.$default-border !important;
+}
+.cal-week-view .cal-day-headers {
+  border-color: variables.$default-border !important;
+}
+.cal-month-view .cal-days{
+  border-color: variables.$default-border !important;
+}
+[dir=rtl]{
+  .cal-month-view .cal-day-cell:not(:last-child){
+    border-left-color:var(--default-border) !important;
+  }
+}
+
+.cal-week-view .cal-day-headers .cal-header:hover{
+background-color: var(--default-body-bg-color) !important;
+}
+.cal-week-view .cal-header.cal-today{
+background-color: var(--default-body-bg-color) !important;
+}
+.cal-week-view .cal-time-events .cal-day-columns:not(.cal-resize-active) .cal-hour-segment:hover{
+  background-color:  var(--custom-white) !important;
+
+}
+[ngbDatepickerDayView]:hover:not(.bg-primary){
+  background-color: rgba(var(--light-rgb), 0.8) !important;
+  outline:rgb(var(--light-rgb)) !important
+}
+
+.os-scrollbar .os-scrollbar-handle:active,
+.os-scrollbar .os-scrollbar-handle:hover{
+background-color: var(--light-rgb) ;
+}
+@media (min-width: 992px) {
+  .app-sidebar{
+
+      #sidebar-scroll [overlayscrollbars] {
+          position: inherit;
+      }
+      #sidebar-scroll {
+          position: static;
+      }
+  }
+} 
+[data-theme-mode="dark"]{
+  .os-scrollbar .os-scrollbar-handle {
+    background: rgba(variables.$white, 0.2) !important;
+    border-radius: .3rem !important;
+    inset-inline-end: 0 !important;
+    width: .375rem;
+  }
+
+  
+}
+.os-scrollbar .os-scrollbar-handle {
+  background: var(--gray-2) !important;
+  border-radius: .3rem !important;
+  inset-inline-end: 0 !important;
+  width: .375rem;
+}
+
+
+
+.os-scrollbar .os-scrollbar-handle:active,
+.os-scrollbar .os-scrollbar-handle:hover{
+background-color: var(--light-rgb) ;
+}
+[data-nav-layout="horizontal"][data-nav-style="menu-hover"][data-toggled="menu-hover-closed"] {
+@media (min-width: 992px) {
+  .app-sidebar{
+
+      #sidebar-scroll [overlayscrollbars] {
+          position: inherit;
+      }
+      #sidebar-scroll {
+          position: static;
+      }
+  }
+}
+}
+[data-nav-layout="horizontal"]{
+  .os-scrollbar-handle{
+    display: none !important;
+  }
+}
+.ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+  // border:0px !important;
+  box-shadow:none !important;
+  }
+//   .ng-select .ng-select-container:hover {
+//     box-shadow:none !important;
+// }
+    // .ng-select.ng-select-single .ng-select-container{
+    //   border:0px !important;
+      
+    // }
+    .companies-search-input{
+      .ng-select .ng-select-container {
+        border: 0px;
+    }
+    .ng-select .ng-select-container:hover {
+      box-shadow: none;
+  }
+    }
+    #grid-search,#file-export,#responsiveDataTable,#datatable-basic{
+      table{
+        border: 1px solid variables.$default-border !important;
+        margin-top: 10px;
+      }
+    }
+    
+[data-nav-layout="horizontal"][data-nav-style="icon-hover"][data-toggled="icon-hover-closed"] {
+  .slide.has-sub .slide-menu {
+    &.child1{
+      inset-inline-start: auto !important;
+    }
+  }
+}
+
+[data-nav-layout="horizontal"][data-nav-style="menu-hover"][data-toggled="menu-hover-closed"] {
+  .slide.has-sub .slide-menu {
+    &.child1{
+      inset-inline-start: auto !important;
+    }
+  }
+}
+/* Start:: Create NFT*/
+.create-nft-item {
+  .filepond--root[data-style-panel-layout~="circle"] {
+    border-radius: variables.$default-radius;
+    width: 100%;
+  }
+  @media (min-width: 576px) {
+      .single-fileupload{
+        height: 15.08rem !important;
+        width: 22.25rem !important;
+      }
+  }
+.filepond--drop-label{
+  bottom: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .filepond--drop-label.filepond--drop-label label {
+    padding: 2em;
+  }
+
+  .filepond--drop-label {
+    color: variables.$text-muted !important;
+  }
+
+  .filepond--panel-root {
+    border: 0.125rem dashed variables.$input-border !important;
+  }
+
+  .filepond--root[data-style-panel-layout~="circle"] .filepond--image-preview-wrapper {
+    border-radius: 0.3rem;
+  }
+}
+
+.create-nft-item {
+  .filepond--root[data-style-panel-layout~="circle"] {
+    height: 15.08rem !important;
+    width: 22.25rem !important;
+  }
+
+  .filepond--drop-label label {
+    font-size: 0.75rem;
+  }
+
+  .filepond--root[data-style-panel-layout~="circle"] .filepond--image-preview-wrapper,
+  .filepond--file {
+    height: 15.08rem !important;
+    width: 22.25rem !important;
+  }
+}
+
+/* End:: Create NFT*/
+
+.record-picker li {
+  border-top: thin solid variables.$default-border !important;
+  border-bottom: 1px solid variables.$default-border !important;
+}
+div.record-picker{
+  border: 1px solid variables.$default-border !important;
+}
+div.record-picker::-webkit-scrollbar-track{
+  background-color: variables.$light !important;
+}
+.record-picker li.selected{
+  background-color: variables.$primary !important;
+  color: #fff !important;
+}
+.btn.btn-default.pull-right{
+  color: variables.$text-muted !important;
+}
+.dual-list .listbox{
+  margin-inline-start: 10px !important;
+    .btn-default {
+      border-color: var(--default-border)
+  }
+  
+}
+.record-picker li:hover {
+  background-color: rgb(var(--light-rgb)) !important;
+}
+.record-picker li.selected:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input, .mat-mdc-button:not(:disabled), .country-list-button {
+  color: var(--default-text-color) !important;
+}
+
+
+
+  .mat-mdc-menu-panel{
+    background-color: variables.$custom-white !important;
+  }
+  .page-header-breadcrumb {
+    .form-control::-webkit-input-placeholder {
+      opacity: 1 !important;
+    }
+  }
+  .numInput.cur-year {
+    margin-inline-start: 1rem !important;
+  }
+  .app-sidebar .os-scrollbar-track {
+    inset-inline-end: -2px;
+  }
+  .ng-option.ng-option-marked {
+    background-color: variables.$primary !important;
+    color: variables.$white !important;
+  }
+  .ng-select.ng-select-opened .ng-select-container,
+  .ng-dropdown-panel {
+    z-index: 99 !important;
+  }
+  .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon:hover {
+    background-color: variables.$primary !important;
+  }
+  .ngb-dp-weekdays {
+    border-bottom:  1px solid variables.$default-border !important;
+    background-color:  variables.$custom-white !important;
+  }
+  .ngb-dp-header {
+    background-color:  variables.$custom-white !important;
+  }
+  [dir=rtl] {
+    .cal-week-view .cal-day-column {
+      border-right-color: variables.$default-border !important;
+    }
+  }
+  @media (max-width: 622.99px) {
+    .companies-search-input1 {
+      .ng-select-searchable.form-select {
+        width: 100%;
+        margin-block: 0.5rem;
+      }
+    }
+  }
+  .arrow-image, 
+  .right-arrow-image, 
+  .left-arrow-image, 
+  .empty-arrow-image {
+    height: 20px !important;
+    width: 20px !important;
+    background-size: 20px !important;
+  }
+  .flex-none {
+    flex: none;
+  }
+  @media (max-width: 576px) {
+    #rangearea-basic,
+    #rangearea-combo {
+      .apexcharts-toolbar {
+        display: none;
+      } 
+    }
+    #area-irregular {
+      .apexcharts-menu-icon {
+        display: none;
+      }
+    }
+  }
+  .card.custom-card.card-fullscreen {
+    border-radius: 0;
+  }
+  [dir="rtl"] {
+    .form-select {
+      background-position: left 0.75rem center !important;
+    }
+  }
+  .form-select {
+    padding-top: 0.375rem !important;
+    padding-inline-end: 2.25rem !important;
+    padding-bottom: 0.375rem !important;
+    padding-inline-start: 0.75rem !important;
+}
+[dir=rtl] .noUi-origin {
+  transform: none !important;
+  direction: ltr;
+}
+// .ng-select-searchable {
+//   margin-bottom: 24px;
+// }
+.button-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+@media (max-width: 576px) {
+  .dual-list .button-bar button {
+    width: 100% !important;
+  }
+}
+[dir="rtl"] {
+  .color-picker.open {
+    inset-inline-start: 0px !important;
+  }
+}
+.switcher-canvas-width {
+  .nav-link:focus, .nav-link:hover {
+    color: variables.$default-text-color;
+  }
+}
+[data-theme-mode="dark"] {
+  .os-scrollbar .os-scrollbar-handle{
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}
+.ngx-slider .ngx-slider-pointer {
+  background-color: variables.$light !important;
+}
+.ngx-slider .ngx-slider-pointer:after {
+  background-color: variables.$gray-4 !important;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder {
+  top: 8px !important;
+}
+.mat-stepper-horizontal-line {
+  border-top-color: variables.$gray-4 !important;
+}
+[data-menu-styles="color"],
+[data-menu-styles="gradient"] {
+  .app-sidebar {
+    .os-scrollbar .os-scrollbar-handle {
+      background-color: rgba(201, 203, 235, 0.51) !important;
+    }
+  }
+}
+.form-select.ng-select-clearable {
+  background-image: none !important;
+  padding-inline-end: 1rem !important;
+}

@@ -1,0 +1,182 @@
+<app-page-header title="Cart" title1="Ecommerce" activeTitle="Cart" ></app-page-header>
+<!-- Start::row-1 -->
+
+                <div class="row">
+                    <div class="col-xl-9">
+                        <div class="card custom-card overflow-hidden shadow-none border" id="cart-container-delete">
+                            <div class="card-header"> <div class="card-title"> Cart Items </div> </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <app-spk-reusable-tables  [columns]="cartColumn" tableClass=" text-nowrap"
+                                    [showCheckbox]="false"> 
+                                    @for (product of products; track product) {
+
+                                        <tr>
+                                            <td class="cart-items01">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="me-3">
+                                                        <span class="avatar avatar-xxl bg-light">
+                                                            <img [src]="product.img" alt="">
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-fill">
+                                                        <div class="mb-1 fs-14 fw-semibold">
+                                                            <a href="javascript:void(0);">{{product.name}}
+                                                                @if(product.discount){
+
+                                                                    <span class="badge bg-{{product.bg}} fs-9"><i class="ri-discount-percent-line fs-10"></i> {{product.discount}}</span>
+                                                                }
+                                                                </a>
+                                                        </div>
+                                                        <div class="d-flex gap-4 flex-wrap mb-1 align-items-center">
+                                                            <div>
+                                                                <span class="me-1">Size:</span><span class="fw-medium text-muted">{{product.size}}</span>
+                                                            </div>
+                                                            <div>
+                                                                <span class="me-1">Color:</span><span class="fw-medium text-muted">{{product.color}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge bg-{{product.bg1}}-transparent">{{product.status}}</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-semibold fs-14">
+                                                    {{product.price}}
+                                                </div>
+                                            </td>
+                                            <td class="product-quantity-container">
+                                                <div class="input-group flex-nowrap gap-1 rounded-pill cart-input-group">
+                                                    <button type="button" aria-label="button" class="btn btn-icon btn-wave btn-sm border rounded-pill btn-primary-light border product-quantity-minus border-end-0 waves-effect waves-light" (click)="decreaseQuantity(product)"><i class="ri-subtract-line"></i></button>
+                                                    <input type="text" class="form-control form-control-sm rounded-pill text-center p-0" aria-label="quantity"[(ngModel)]="product.quantity" >
+                                                    <button type="button" aria-label="button" class="btn btn-icon btn-wave btn-sm border rounded-pill btn-primary-light border product-quantity-plus border-start-0 waves-effect waves-light" (click)="increaseQuantity(product)"><i class="ri-add-line"></i></button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="fs-14 fw-semibold">
+                                                    {{product.total}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <a routerLink="/apps/ecommerce/wishlist" class="btn btn-icon btn-primary btn-sm me-1" data-bs-toggle="tooltip" placement="top" ngbTooltip="Add To Wishlist"><i class="ri-heart-line"></i></a>
+                                                <a href="javascript:void(0);" class="btn btn-icon btn-primary2 btn-sm btn-delete" data-bs-toggle="tooltip" (click)="confirmAlert(product.id)" placement="top" ngbTooltip="Remove From cart">
+                                                    <i class="ri-delete-bin-line"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                    </app-spk-reusable-tables>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card custom-card d-none" id="cart-empty-cart">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Empty Cart
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="cart-empty text-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="svg-muted" width="24" height="24" viewbox="0 0 24 24"><path d="M18.6 16.5H8.9c-.9 0-1.6-.6-1.9-1.4L4.8 6.7c0-.1 0-.3.1-.4.1-.1.2-.1.4-.1h17.1c.1 0 .3.1.4.2.1.1.1.3.1.4L20.5 15c-.2.8-1 1.5-1.9 1.5zM5.9 7.1 8 14.8c.1.4.5.8 1 .8h9.7c.5 0 .9-.3 1-.8l2.1-7.7H5.9z"/><path d="M6 10.9 3.7 2.5H1.3v-.9H4c.2 0 .4.1.4.3l2.4 8.7-.8.3zM8.1 18.8 6 11l.9-.3L9 18.5z"/><path d="M20.8 20.4h-.9V20c0-.7-.6-1.3-1.3-1.3H8.9c-.7 0-1.3.6-1.3 1.3v.5h-.9V20c0-1.2 1-2.2 2.2-2.2h9.7c1.2 0 2.2 1 2.2 2.2v.4z"/><path d="M8.9 22.2c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2c1.2 0 2.2 1 2.2 2.2s-1 2.2-2.2 2.2zm0-3.5c-.7 0-1.3.6-1.3 1.3 0 .7.6 1.3 1.3 1.3.8 0 1.3-.6 1.3-1.3 0-.7-.5-1.3-1.3-1.3zM18.6 22.2c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2c1.2 0 2.2 1 2.2 2.2s-.9 2.2-2.2 2.2zm0-3.5c-.8 0-1.3.6-1.3 1.3 0 .7.6 1.3 1.3 1.3.7 0 1.3-.6 1.3-1.3 0-.7-.5-1.3-1.3-1.3z"/></svg>
+                                    <h3 class="fw-bold mb-1">Your Cart is Empty</h3>
+                                    <h5 class="mb-3">Add some items to make me happy :)</h5>
+                                    <a href="javascript:void(0);" class="btn btn-primary btn-wave m-3" data-abc="true">continue shopping <i class="bi bi-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">	
+                        <div class="card custom-card">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    Order Summary
+                                </div>
+                            </div>
+                            <div class="card-body p-0 custom-tabs">
+                                <div class="p-3 border-bottom border-block-end-dashed">
+                                    <label for="promo-code" class="fw-medium mb-0">Have a Promo Code?</label>
+                                    <div class="fs-11 text-muted mb-3">Apply Your Promo Code for an Instant Discount!</div>
+                                    <div class="input-group mb-0">
+                                        <input type="text" class="form-control form-control-sm" id="promo-code" name="promo-code" placeholder="Enter Promo Code" aria-label="Enter Promo Code" aria-describedby="coupons">
+                                        <button class="btn btn-primary" type="button" id="coupons">Apply</button>
+                                    </div>
+                                </div>
+                                <div class="p-3 pb-2 ">
+                                    <p class="mb-2 fw-semibold">Delivery:</p>
+                                    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav nav-tabs tab-style-8 scaleX rounded cart-summary-nav gap-2" id="myTab4" role="tablist">
+                                        <li [ngbNavItem]="1" class="nav-item flex-fill me-0" role="presentation">
+                                            <button ngbNavLink class="nav-link w-100 " id="freeshipping" data-bs-toggle="tab" data-bs-target="#freeshipping-pane" type="button" role="tab" aria-controls="freeshipping-pane" aria-selected="true">Free Shipping</button>
+                                       <ng-template ngbNavContent>
+                                        <div class="tab-pane show active overflow-hidden p-0 border-0" id="freeshipping-pane" role="tabpanel" aria-labelledby="freeshipping" tabindex="0">
+                                            <div class="fs-12 text-muted mb-3"><i class="ri-information-fill"></i> Delivered Within 7 Days</div>
+                                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                                <div class="text-muted">Sub Total</div>
+                                                <div class="fw-medium fs-14">$2,547</div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                                <div class="text-muted">Discount</div>
+                                                <div class="fw-medium fs-14 text-success">20% - $124</div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                                <div class="text-muted">Delivery Charges</div>
+                                                <div class="fw-medium fs-14 text-danger">- $0</div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                                <div class="text-muted">Service Tax (18%)</div>
+                                                <div class="fw-medium fs-14">- $12</div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between h5">
+                                                <div class="fs-16">Total :</div>
+                                                <div class="fw-semibold"> $2,254</div>
+                                            </div>
+                                            <div class="d-grid">
+                                                <a routerLink="/apps/ecommerce/checkout" class="btn btn-primary btn-wave mb-2">Proceed To Checkout</a>
+                                                <a routerLink="/apps/ecommerce/products" class="btn btn-primary1-light btn-wave">Continue Shopping</a>
+                                            </div>
+                                        </div>
+                                       </ng-template>
+                                        </li>
+                                        <li [ngbNavItem]="2" class="nav-item flex-fill" role="presentation">
+                                            <button ngbNavLink class="nav-link w-100" id="expressshipping-tab" data-bs-toggle="tab" data-bs-target="#expressshipping-tab-pane" type="button" role="tab" aria-controls="expressshipping-tab-pane" aria-selected="false" tabindex="-1">Express Shipping</button>
+                                            <ng-template ngbNavContent>
+                                                <div class="tab-pane overflow-hidden p-0 border-0" id="expressshipping-tab-pane" role="tabpanel" aria-labelledby="expressshipping-tab" tabindex="0">
+                                                    <div class="fs-12 text-muted mb-3"><i class="ri-information-fill"></i> Delivered by Tomorrow</div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                                        <div class="text-muted">Sub Total</div>
+                                                        <div class="fw-medium fs-14">$2,547</div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                                        <div class="text-muted">Discount</div>
+                                                        <div class="fw-medium fs-14 text-success">20% - $124</div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                                        <div class="text-muted">Delivery Charges</div>
+                                                        <div class="fw-medium fs-14 text-danger">- $15</div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                                        <div class="text-muted">Service Tax (18%)</div>
+                                                        <div class="fw-medium fs-14">- $12</div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between h5">
+                                                        <div class="fs-16">Total :</div>
+                                                        <div class="fw-semibold"> $2,546</div>
+                                                    </div>
+                                                    <div class="d-grid">
+                                                        <a routerLink="/apps/ecommerce/checkout" class="btn btn-primary btn-wave mb-2">Proceed To Checkout</a>
+                                                        <a routerLink="/apps/ecommerce/products" class="btn btn-primary1-light btn-wave">Continue Shopping</a>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-3 border-bottom border-block-end-dashed tab-content " [ngbNavOutlet]="nav">
+                                 
+                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+<!--End::row-1 -->

@@ -1,0 +1,13 @@
+
+    <div class="d-flex align-items-center bg-light rounded-1 p-2 pe-5">
+      <div class="me-2">
+        <span [ngClass]="['avatar avatar-lg', bgClass, 'p-2']">
+          <i [ngClass]="iconClass" class="fs-18 lh-1"></i>
+        </span>
+      </div>
+      <div class="flex-fill">
+        <span class="fw-semibold d-block mb-0">{{ category }}</span>
+        <span class="text-muted d-block fs-12 mb-0">{{ count }}</span>
+      </div>
+    </div>
+  

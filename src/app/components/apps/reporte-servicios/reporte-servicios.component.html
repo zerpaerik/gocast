@@ -1,0 +1,130 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Reporte de Servicios Viales</h5>
+                </div>
+
+                <div class="card-body">
+                    <form [formGroup]="filtrosForm" (ngSubmit)="buscar()">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="companiaSeguros">Compañía de Seguros *</label>
+                                    <select class="form-control" id="companiaSeguros" formControlName="companiaSeguros">
+                                        <option value="">Seleccione una compañía</option>
+                                        <option *ngFor="let compania of companiasSeguros" [value]="compania">
+                                            {{compania}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="companiaSegurosControl?.touched && companiaSegurosControl?.invalid" 
+                                         class="text-danger small mt-1">
+                                        Debe seleccionar una compañía
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="fechaDesde">Fecha Desde *</label>
+                                    <input type="date" class="form-control" id="fechaDesde" formControlName="fechaDesde">
+                                    <div *ngIf="fechaDesdeControl?.touched && fechaDesdeControl?.invalid" 
+                                         class="text-danger small mt-1">
+                                        La fecha inicial es requerida
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="fechaHasta">Fecha Hasta *</label>
+                                    <input type="date" class="form-control" id="fechaHasta" formControlName="fechaHasta">
+                                    <div *ngIf="fechaHastaControl?.touched && fechaHastaControl?.errors" 
+                                         class="text-danger small mt-1">
+                                        <span *ngIf="fechaHastaControl?.errors?.['required']">
+                                            La fecha final es requerida
+                                        </span>
+                                        <span *ngIf="fechaHastaControl?.errors?.['fechaInvalida']">
+                                            La fecha final debe ser mayor a la fecha inicial
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn btn-secondary me-2" (click)="limpiar()">
+                                    <i class="ti ti-refresh me-1"></i>
+                                    Limpiar
+                                </button>
+                                <button type="submit" class="btn btn-primary" [disabled]="!filtrosForm.valid">
+                                    <i class="ti ti-search me-1"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row mt-4" *ngIf="mostrarResultados">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div *ngIf="servicios.length > 0">
+                                    <span class="text-muted">Total de registros: {{servicios.length}}</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success me-2" (click)="exportarCSV()" 
+                                            [disabled]="servicios.length === 0">
+                                        <i class="ti ti-file-spreadsheet me-1"></i>
+                                        Exportar Excel
+                                    </button>
+                                  
+                                </div>
+                            </div>
+
+                            <div *ngIf="servicios.length === 0" class="alert alert-info">
+                                <i class="ti ti-info-circle me-2"></i>
+                                No se encontraron registros para los filtros seleccionados
+                            </div>
+
+                            <div class="table-responsive" *ngIf="servicios.length > 0">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>N° Servicio</th>
+                                            <th>Fecha</th>
+                                            <th>Compañía</th>
+                                            <th>Tipo</th>
+                                            <th>Cliente</th>
+                                            <th>Ubicación</th>
+                                            <th class="text-end">Monto</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let servicio of servicios">
+                                            <td>{{servicio.numeroServicio}}</td>
+                                            <td>{{servicio.fechaServicio | date:'dd/MM/yyyy'}}</td>
+                                            <td>{{servicio.companiaSeguros}}</td>
+                                            <td>{{servicio.tipoServicio}}</td>
+                                            <td>{{servicio.cliente}}</td>
+                                            <td>{{servicio.ubicacion}}</td>
+                                            <td class="text-end">{{formatearMonto(servicio.monto)}}</td>
+                                            <td>
+                                                <span class="badge" [ngClass]="{
+                                                    'bg-success': servicio.estado === 'Completado',
+                                                    'bg-warning text-dark': servicio.estado === 'En Proceso',
+                                                    'bg-danger': servicio.estado === 'Cancelado'
+                                                }">
+                                                    {{servicio.estado}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

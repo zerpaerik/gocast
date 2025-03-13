@@ -1,0 +1,66 @@
+<app-page-header title="Listado" title1="Vehículos" activeTitle="">Vehículos</app-page-header>
+
+<!-- Start:: row-1 -->
+<div class="row">
+ 
+    <div class="col-xl-12">
+           
+            <div class="table-responsive">
+                <div align="right" class="card-header justify-content-between">
+                    <div class="card-title">
+                    </div>
+                    <div class="">
+                        <a class="btn btn-primary btn-wave" href="/apps/vehiculos/vehiculos-new">Agregar</a>
+                    </div>
+                </div>
+
+             
+                <br>
+                <app-spk-reusable-tables [columns]="borderColumn" tableClass="text-nowrap table-bordered"
+                    [showCheckbox]="false">
+                    
+                    @for(table of borderTables;track $index){
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                {{table.marca}}
+                            </div>
+                        </th>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                {{table.modelo}}
+                            </div>
+                        </th>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                {{table.color}}
+                            </div>
+                        </th>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                {{table.anio}}
+                            </div>
+                        </th>
+                        <td>
+                            <button class="btn btn-sm btn-{{table.bg}}-light">{{table.status}}</button>
+
+                        </td>
+                        <td>
+                            <div class="hstack gap-2 flex-wrap">
+                                <a href="javascript:void(0);" class="text-info fs-14 lh-1"><i
+                                        class="ri-edit-line"></i></a>
+                                <a href="javascript:void(0);" class="text-danger fs-14 lh-1"><i
+                                        class="ri-delete-bin-5-line"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    }
+                </app-spk-reusable-tables>
+
+            </div>
+    </div>
+</div>
+<!-- End:: row-1 -->
+
+

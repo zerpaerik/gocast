@@ -1,0 +1,381 @@
+<app-page-header title="CRM" title1="Dashboards" activeTitle="CRM" ></app-page-header>
+
+  <!-- Start::row-1 -->
+    <div class="row">
+        @for(data of cardData;track $index){
+        <div class="col-md-6 col-lg-4 col-xl">
+            <app-spk-crm-card 
+            [iconBgClass]="data.iconBgClass" 
+            [title]="data.title"  
+            [value]="data.value" 
+            [percentageChange]="data.percent" 
+            [bg]="data.bg" 
+            [arrow]="data.arrow"
+            [svg]="sanitizeIcon(data.svg)">
+          </app-spk-crm-card>
+        </div>
+    }
+    </div>
+    <!-- End::row-1 -->
+    
+    <!-- Start::row-2 -->
+    <div class="row">
+        <div class="col-md-12 col-xxl-3">
+            <div class="card custom-card overflow-hidden earnings-card card-bg-primary shadow-sm">
+                <div class="card-body p-0 text-fixed-white">
+                    <div class="p-3 position-absolute total-earnings-content w-100">
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>
+                                <span class="mb-1 d-block">Total Revenue</span> 
+                                <h4 class="mb-1 text-fixed-white">$578,784</h4> 
+                                <div class="text-fixed-white fs-13"> 
+                                    <span class="op-7"> Increased By </span>  
+                                    <span class="badge bg-primary1 align-middle op-9">7.66%<i class="ti ti-arrow-narrow-up"></i></span>
+                                </div>
+                            </div><div class="avatar avatar-lg bg-white-transparent svg-white ms-auto shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M184,89.57V84c0-25.08-37.83-44-88-44S8,58.92,8,84v40c0,20.89,26.25,37.49,64,42.46V172c0,25.08,37.83,44,88,44s88-18.92,88-44V132C248,111.3,222.58,94.68,184,89.57ZM232,132c0,13.22-30.79,28-72,28-3.73,0-7.43-.13-11.08-.37C170.49,151.77,184,139,184,124V105.74C213.87,110.19,232,122.27,232,132ZM72,150.25V126.46A183.74,183.74,0,0,0,96,128a183.74,183.74,0,0,0,24-1.54v23.79A163,163,0,0,1,96,152,163,163,0,0,1,72,150.25Zm96-40.32V124c0,8.39-12.41,17.4-32,22.87V123.5C148.91,120.37,159.84,115.71,168,109.93ZM96,56c41.21,0,72,14.78,72,28s-30.79,28-72,28S24,97.22,24,84,54.79,56,96,56ZM24,124V109.93c8.16,5.78,19.09,10.44,32,13.57v23.37C36.41,141.4,24,132.39,24,124Zm64,48v-4.17c2.63.1,5.29.17,8,.17,3.88,0,7.67-.13,11.39-.35A121.92,121.92,0,0,0,120,171.41v23.46C100.41,189.4,88,180.39,88,172Zm48,26.25V174.4a179.48,179.48,0,0,0,24,1.6,183.74,183.74,0,0,0,24-1.54v23.79a165.45,165.45,0,0,1-48,0Zm64-3.38V171.5c12.91-3.13,23.84-7.79,32-13.57V172C232,180.39,219.59,189.4,200,194.87Z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profit-report">
+                        <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+                    
+                    </div>
+                    <div id="revenue-report">
+                        <app-apex-chart [chartOptions]="chartOptions1"></app-apex-chart>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="card border border-primary2 border-opacity-25 custom-card">
+                <div class="card-body">
+                    <div class="d-flex gap-2 align-items-center my-1">
+                        <div>
+                            <span class="mb-1 d-block">Total Profit</span> 
+                            <h4 class="mb-1">$37,566</h4> 
+                            <div class="text-muted fs-13"> 
+                                <span class=""> Increased By </span>  
+                                <span class="badge bg-primary3 align-middle">5.66%<i class="ti ti-arrow-narrow-up"></i></span>
+                            </div>
+                        </div>
+                        <div class="avatar avatar-lg bg-primary2-transparent svg-primary2 ms-auto shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M230.33,141.06a24.43,24.43,0,0,0-21.24-4.23l-41.84,9.62A28,28,0,0,0,140,112H89.94a31.82,31.82,0,0,0-22.63,9.37L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9ZM164,96a36,36,0,0,0,5.9-.48,36,36,0,1,0,28.22-47A36,36,0,1,0,164,96Zm60-12a20,20,0,1,1-20-20A20,20,0,0,1,224,84ZM164,40a20,20,0,0,1,19.25,14.61,36,36,0,0,0-15,24.93A20.42,20.42,0,0,1,164,80a20,20,0,0,1,0-40Z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xxl-6">
+            <div class="card custom-card ">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Sales Overview</div>
+                    <div class="d-flex gap-2">
+                        <div class="btn btn-sm btn-outline-light">Today</div>
+                        <div class="btn btn-sm btn-outline-light">Weakly</div>
+                        <div class="btn btn-sm btn-light">Yearly</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="sales-overview-crm">
+                        <app-apex-chart [chartOptions]="chartOptions2"></app-apex-chart>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xxl-3">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Profit By Sale</div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'"
+                    [class]="'btn btn-light btn-sm text-muted dropdown-toggle'" [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">This Week</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Last Week</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">This Month</a></li>
+                </spk-dropdowns>
+
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        @for(metric of metrics;track $index){
+                            <li class="list-group-item border-0 p-0 {{metric.liClass}}">
+                              <div class="d-flex justify-content-between align-items-top">
+                                <div class="d-flex">
+                                  <span class="avatar avatar-rounded avatar-md bg-{{metric.iconColor}}-transparent">
+                                    <i [class]="'bx ' + metric.icon + ' fs-18'"></i>
+                                  </span>
+                                  <div class="d-flex flex-column ms-2">
+                                    <p class="fw-medium mb-0">{{ metric.title }}</p>
+                                    <p class="fs-12 text-muted mb-0">{{ metric.increase }}</p>
+                                  </div>
+                                </div>
+                                <h6 class="fw-medium mb-0">${{ metric.value  }}</h6>
+                              </div>
+                              <div class="progress progress-xs mt-2 mb-0" role="progressbar" aria-label="Basic example" 
+                                   [attr.aria-valuenow]="metric.progress" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-{{metric.iconColor}}" 
+                                     [ngStyle]="{ width: metric.progress + '%' }"></div>
+                              </div>
+                            </li>
+                        }
+                      </ul>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End::row-2 -->
+
+    <!-- Start::row-3 -->
+    <div class="row">
+        <div class="col-xxl-4">
+            <div class="card custom-card">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">
+                        Tasks List
+                    </div>
+                    <div>
+                        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav nav-tabs justify-content-end nav-tabs-header card-headertabs" role="tablist">
+                            <li [ngbNavItem]="1" class="nav-item" role="presentation">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab" aria-current="page"  aria-selected="true">Today</a>
+                           <ng-template ngbNavContent>
+                            <ul class="list-unstyled task-list-tab mb-0">
+                                @for(task of todayTasks;track $index){
+
+                                    <li>
+                                        <div class="todolist d-flex">
+                                            <div class="mb-3 form-check me-2">
+                                                <input type="checkbox" class="form-check-input" [checked]="task.status === 'completed'">
+                                            </div>
+                                            <div class="flex-fill w-100">
+                                                <div class="d-flex align-items-start justify-content-between">
+                                                    <div>
+                                                        <span class="d-block fw-medium">{{ task.title }}
+                                                            @if(task.status === 'completed'){
+
+                                                                <i class="ri-check-fill bg-success-transparent p-1 align-middle fs-10 lh-1 rounded-circle"  ngbTooltip="Completed"></i>
+                                                            }
+                                                               @if(task.status=== 'in progress'){
+                                                                   <i class="ri-hourglass-line bg-primary-transparent p-1 align-middle fs-10 lh-1 rounded-circle"  ngbTooltip="In Progress"></i>
+                                                               }
+                                                               @if(task.status=== 'pending'){
+                                                                   <i class="ri-error-warning-line bg-primary1-transparent p-1 align-middle fs-11 lh-1 rounded-circle"   ngbTooltip="Pending"></i>
+                                                            }
+                                                        </span>
+                                                        <p class="text-muted mb-0 fs-12">{{ task.description }}</p>
+                                                    </div>
+                                                    <div class="d-flex gap-1">
+                                                        <a href="javascript:void(0);" class="btn btn-sm btn-info-light btn-icon" ngbTooltip="Edit" aria-label="Edit"><i class="ti ti-edit"></i></a>
+                                                        <a href="javascript:void(0);" class="btn btn-sm btn-danger-light btn-icon" ngbTooltip="Delete" aria-label="Delete"><i class="ti ti-trash"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                              
+                            </ul>
+                           </ng-template>
+                            </li>
+                            <li  [ngbNavItem]="2" class="nav-item" role="presentation">
+                                <a ngbNavLink class="nav-link" data-bs-toggle="tab" role="tab" aria-current="page"  aria-selected="false" tabindex="-1">Upcoming</a>
+                                <ng-template ngbNavContent>
+                                    <ul class="list-unstyled task-list-tab mb-0">
+                                        @for(task of tasks;track $index){
+                                            <li>
+                                              <div class="todolist d-flex">
+                                                <div class="mb-3 form-check me-2">
+                                                  <input type="checkbox" class="form-check-input" [checked]="task.status === 'completed'">
+                                                </div>
+                                                <div class="flex-fill w-100">
+                                                  <div class="d-flex align-items-start justify-content-between">
+                                                    <div>
+                                                      <span class="d-block fw-medium">{{ task.title }}
+                                                        @if(task.status === 'not started'){
+
+                                                            <i class="ri-time-line bg-primary3-transparent p-1 align-middle fs-10 lh-1 rounded-circle"
+                                                               ngbTooltip="Not Started"></i>
+                                                        }
+                                                        @if(task.status === 'completed'){
+                                                            <i class="ri-check-fill bg-success-transparent p-1 align-middle fs-10 lh-1 rounded-circle"
+                                                               ngbTooltip="Completed"></i>
+                                                        }
+
+                                                      </span>
+                                                      <p class="text-muted mb-0 fs-12">{{ task.description }}</p>
+                                                    </div>
+                                                    <div class="d-flex gap-1">
+                                                      <a href="javascript:void(0);" class="btn btn-sm btn-info-light btn-icon" ngbTooltip="Edit" aria-label="Edit"><i class="ti ti-edit"></i></a>
+                                                      <a href="javascript:void(0);" class="btn btn-sm btn-danger-light btn-icon" ngbTooltip="Delete" aria-label="Delete"><i class="ti ti-trash"></i></a>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </li>
+                                        }
+                                      </ul>
+                                </ng-template>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-body todo-tab custom-tabs">
+                    <div class="tab-content" [ngbNavOutlet]="nav">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xxl-3">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">
+                        Leads Overview
+                    </div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Yearly'" [Icon]="true"
+                    [IconClass]="'ti ti-chevron-down ms-1'" [class]="'btn btn-light border btn-full btn-sm no-caret'"
+                    [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Yearly</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Weekly</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Monthly</a></li>
+                </spk-dropdowns>
+                </div>
+                <div class="card-body px-0">
+                    <div id="Leads-overview">
+                        <app-apex-chart [chartOptions]="chartOptions3"></app-apex-chart>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-xxl-5">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">Sales Performance</div>
+                    
+                    <spk-dropdowns [Customclass]="'dropdown'" [title]="'Today'" [Icon]="true"
+                    [IconClass]="'ti ti-chevron-down ms-1'" [class]="'btn btn-light border btn-full btn-sm no-caret'"
+                    [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Today</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Weekly</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Monthly</a></li>
+                </spk-dropdowns>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <app-spk-reusable-tables [columns]="salesColumn" tableClass="text-nowrap"  [showCheckbox]="false">
+                            @for(sale of sales;track $index){
+
+                                <tr>
+                                    <td>{{sale.id}}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="me-2 lh-1">
+                                                <span class="avatar avatar-xs">
+                                                    <img [src]="sale.src" alt="">
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <a href="javascript:void(0)" class="fw-medium">{{sale.name}}</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{sale.deals}}</td>
+                                    <td>{{sale.leads}}</td>
+                                    <td>{{sale.rate}}<i class="{{sale.icon}}"></i></td>
+                                </tr>
+                            }
+                            </app-spk-reusable-tables>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End::row-3 -->
+
+    <!-- Start::row-4 -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card custom-card overflow-hidden">
+                <div class="card-header justify-content-between">
+                    <div class="card-title">
+                        Leads Report
+                    </div>
+                    <spk-dropdowns [Customclass]="'dropdown'" [class]="'btn btn-light border btn-full btn-sm no-caret '"
+                    [title]="'View All'" [Icon]="true" [IconClass]="'ti ti-chevron-down ms-1'"
+                    [Menuclass]="'dropdown-menu'">
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Download</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Import</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Export</a></li>
+                </spk-dropdowns>
+                </div>
+                <div class="card-body active-tab">
+                    <div class="table-responsive">
+                        <app-spk-reusable-tables [columns]="leadsColumn" tableClass="text-nowrap table-bordered mb-0"  [showCheckbox]="false">
+                            @for(lead of leads;track $index){
+
+                                <tr>
+                                    <td>
+                                        <span class="">{{lead.id}}</span>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <span class="avatar avatar-sm">
+                                                <img [src]="lead.src"  class="" alt="">
+                                            </span>
+                                            <div class="flex-1 ms-2">
+                                                <p class="mb-0 fs-14">{{lead.name}}</p>
+                                                <a href="javascript:void(0);" class="text-muted fs-12">{{lead.mail}}</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="">{{lead.number}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="">{{lead.company}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-{{lead.bg}}-transparent">{{lead.status}}</span>
+                                    </td>
+                                    <td>
+                                        <span><i class="ri-map-pin-fill text-muted me-1"></i>{{lead.country}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{lead.date}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{lead.amount}}</span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-list">
+                                            <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="View" class="btn  btn-icon rounded-pill btn-primary-light"><i class="ti ti-eye"></i></a>
+                                            <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="Edit" class="btn  btn-icon rounded-pill btn-info-light"><i class="ti ti-pencil"></i></a>
+                                            <a aria-label="anchor" href="javascript:void(0);" data-bs-toggle="tooltip" placement="top" ngbTooltip="Delete" (click)="remove(lead.id)" class="btn  btn-icon rounded-pill  btn-primary2-light"><i class="ti ti-trash"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            </app-spk-reusable-tables>
+               
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex align-items-center">
+                        <div>Showing 5 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i></div>
+                        <div class="ms-auto">
+                            <nav aria-label="Page navigation" class="pagination-style-4">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Prev</a></li>
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                    <li class="page-item"><a class="page-link text-primary" href="javascript:void(0);">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End::row-4 -->

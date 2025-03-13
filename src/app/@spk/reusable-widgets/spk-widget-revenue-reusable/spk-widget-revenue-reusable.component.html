@@ -1,0 +1,23 @@
+<div class="card custom-card">
+    <div class="card-body">
+      <div class="d-flex align-items-end flex-wrap justify-content-between text-end gap-2">
+        <div>
+          <div>
+           <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+          </div>
+        </div>
+        <div class="text-end ms-auto">
+          <span class="avatar avatar-sm bg-{{bg}} mb-2">
+            <i class="{{iconClass}}"></i>
+          </span>
+          <div class="flex-fill text-muted fs-14 mb-1">{{ title }}</div>
+          <div class="h4 fw-medium mb-0 d-flex align-items-center flex-wrap gap-2">{{ value }}
+            <span class=" badge bg-{{changeType}}-transparent fs-10">
+              <i class="ri-arrow-left-{{arrow}}-line"></i>{{ change }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

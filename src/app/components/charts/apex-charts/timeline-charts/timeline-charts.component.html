@@ -1,0 +1,70 @@
+<app-page-header title="Timeline Charts" title1="Apex Charts" activeTitle="Timeline Charts" ></app-page-header>
+
+  <!-- Start::row-1 -->
+   <div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Basic TImeline Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="timeline-basic">
+                    <app-apex-chart  [chartOptions]="chartOptions"></app-apex-chart>
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Multiple Colored TImeline Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="timeline-colors">
+                    <app-apex-chart  [chartOptions]="chartOptions1"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Multi Series Timeline Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="timeline-multi">
+                    <app-apex-chart  [chartOptions]="chartOptions2"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Advanced Timeline Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="timeline-advanced">
+                    <app-apex-chart  [chartOptions]="chartOptions3"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Timeline-Grouped Rows</div>
+            </div>
+            <div class="card-body">
+                <div id="timeline-grouped">
+                    <app-apex-chart  [chartOptions]="chartOptions4"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+</div>
+<!--End::row-1 -->

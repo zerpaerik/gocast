@@ -1,0 +1,48 @@
+<div class="card custom-card overflow-hidden">
+    <div class="card-header">
+        <div class="card-title">
+            {{ cardTitle }}
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="d-flex align-items-center mb-3 gap-2">
+            <h3 class="fw-medium mb-0">{{ totalRevenue }}</h3>
+            <div class="text-muted fs-13 text-end ms-auto">Increased By
+                <span class="text-success">{{ mainIncreasePercentage }}<i class="ti ti-arrow-narrow-up fs-16"></i></span>
+            </div>
+        </div>
+        <div class="progress-stacked mb-1">
+            @for(bar of progressBars;track $index){
+
+                <div  class="progress-bar progress-bar-striped" role="progressbar" 
+                    [style.width.%]="bar.width" class="{{bar.colorClass}}" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            }
+        </div>
+    </div>
+    <div class="card-footer p-0">
+        <ul class="list-group list-group-flush">
+            @for(item of revenueItems;track $index){
+
+                <li  class="list-group-item" class="{{item.type}}">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-fill align-items-center">
+                            <div class="d-flex align-items-top justify-content-between">
+                                <div>
+                                    <p class="mb-1 text-muted d-flex align-items-center">
+                                        <i class="{{item.iconClass}}" class="fs-20 me-2 bg-primary-transparent rounded-circle"></i>
+                                        {{ item.title }}
+                                    </p>
+                                    <h6 class="mb-0 lh-1 fw-medium ms-4 ps-1">{{ item.amount }}</h6>
+                                </div>
+                                <div class="text-muted fs-13 text-end ms-auto">{{ item.statusText }}
+                                    <span class="{{item.statusClass}}">{{ item.statusPercentage }}<i class="{{item.statusIcon}}"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

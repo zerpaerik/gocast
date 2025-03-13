@@ -1,0 +1,30 @@
+<div class="card custom-card overflow-hidden">
+    <div class="widget-card">
+        <div class="d-flex align-items-start text-fixed-white flex-wrap px-2">
+            <div class="flex-grow-1 text-center">
+                <div class="mt-2 align-items-center justify-content-between fs-21 mb-1">
+                    <span>{{ title }}</span>
+                    <span class="min-w-fit-content fs-10 ms-1 ">{{ subtitle }}</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="flex-grow-1 fs-30 fw-semibold sale-font counter">{{ mainValue }}<span>
+                    </span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="d-flex align-items-center gap-2">
+            <div class="flex-grow-1">
+                <div class="fs-21 fw-medium mb-1">{{ increasedAmount }}</div>
+                <div class="flex-grow-1 fs-13 mb-2">Increased By</div>
+                <span class="fs-12 text-success">
+                    <i class="ti ti-arrow-narrow-up"></i>{{ increasedPercentage }}
+                </span>
+            </div>
+            <span class="avatar rounded-circle bg-primary-transparent ms-auto">
+                <i class="bx bx-up-arrow-alt fs-20"></i>
+            </span>
+        </div>
+    </div>
+</div>

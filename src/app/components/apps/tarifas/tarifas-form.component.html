@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{{ isEditing ? 'Editar' : 'Nueva' }} Tarifa</h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="guardar()">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="tipoServicio">Tipo de Servicio</label>
+                                    <select class="form-control" id="tipoServicio" formControlName="tipoServicio">
+                                        <option value="">Seleccione un servicio</option>
+                                        <option *ngFor="let tipo of tiposServicio" [value]="tipo">
+                                            {{tipo}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="tipoServicioControl?.touched && tipoServicioControl?.invalid" class="text-danger">
+                                        <small>El tipo de servicio es requerido</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="tipoTarifa">Tipo de Tarifa</label>
+                                    <select class="form-control" id="tipoTarifa" formControlName="tipoTarifa">
+                                        <option value="">Seleccione un tipo de tarifa</option>
+                                        <option *ngFor="let tipo of tiposTarifa" [value]="tipo">
+                                            {{tipo}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="tipoTarifaControl?.touched && tipoTarifaControl?.invalid" class="text-danger">
+                                        <small>El tipo de tarifa es requerido</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="monto">Monto</label>
+                                    <input type="number" class="form-control" id="monto" formControlName="monto" 
+                                           placeholder="Ingrese el monto" step="0.01" min="0">
+                                    <div *ngIf="montoControl?.touched && montoControl?.invalid" class="text-danger">
+                                        <small *ngIf="montoControl?.errors?.['required']">El monto es requerido</small>
+                                        <small *ngIf="montoControl?.errors?.['min']">El monto debe ser mayor a 0</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12 text-right">
+                                <button type="button" class="btn btn-secondary" (click)="cancelar()">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary me-2" [disabled]="form.invalid">
+                                    {{ isEditing ? 'Actualizar' : 'Guardar' }}
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,548 @@
+<app-page-header title="Stocks" title1="Dashboards" activeTitle="Stocks" ></app-page-header>
+
+ <!-- Start:: row-1 -->
+    <div class="row">
+      <div class="col-xl-12">
+          <div class="swiper swiper-basic swiper-initialized swiper-horizontal swiper-backface-hidden">
+              <div class="swiper-wrapper">
+                <swiper-container 
+                #swiperContainer
+                class="swiper mySwiper" 
+                space-between="10"
+                slides-per-view="5"
+                slides-per-group="1"
+                autoplay-delay="2000"  autoplay-disable-on-interaction="false"
+              >
+          
+                  <swiper-slide >
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-dark-transparent p-2 avatar-sm">
+                                            <i class="bi bi-apple text-dark"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Apple</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-success">+0.14%</span>
+                                    <span class="d-block fw-medium fs-14">AAPL</span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$1,780.80<i class="ri-arrow-up-s-fill text-success lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-1" class="stock-sparkline-charts">
+                                    <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+                            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </swiper-slide>
+                    <swiper-slide >
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                    <div class="d-flex flex-fill align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-rounded bg-warning-transparent p-2 avatar-sm">
+                                                <i class="bi bi-currency-bitcoin text-warning"></i>
+                                            </span>
+                                        </div>
+                                        <div class="">
+                                            <span class="d-block text-default fs-14">Bitcoin</span>
+                                        </div>
+                                    </div>
+                                    <div class="fs-12 text-end">
+                                        <span class="d-block text-danger">-2.14%</span>
+                                        <span class="d-block fw-medium fs-14">BTC</span>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                    <div>
+                                        <span class="d-block text-muted">Current Value:</span>
+                                        <span class="d-block ms-auto fs-15 fw-medium">$58,151.02<i class="ri-arrow-down-s-fill text-danger lh-1 align-middle fs-20 ms-1"></i></span>
+                                    </div>
+                                    <div id="stock-2" class="stock-sparkline-charts">
+                                        <app-apex-chart [chartOptions]="chartOptions1"></app-apex-chart>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </swiper-slide>
+                <swiper-slide >
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-primary1-transparent p-2 avatar-sm">
+                                            <i class="bi bi-card-list text-primary1"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Tesla</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-success">+4.02%</span>
+                                    <span class="d-block fw-medium fs-14">TSLA</span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$4,125.63<i class="ri-arrow-up-s-fill text-success lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-3" class="stock-sparkline-charts">
+                                    <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide >
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-primary2-transparent p-2 avatar-sm">
+                                            <i class="bi bi-gift text-primary2"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Amazon</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-danger">-5.14%</span>
+                                    <span class="d-block fw-medium fs-14">AMZN</span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$63,251.11<i class="ri-arrow-down-s-fill text-danger lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-4" class="stock-sparkline-charts">
+                                 <app-apex-chart [chartOptions]="chartOptions1"></app-apex-chart>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide >
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-primary3-transparent p-2 avatar-sm">
+                                            <i class="bi bi-truck text-primary3"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Aliexpress</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-success">+1.14%</span>
+                                    <span class="d-block fw-medium fs-14">AE </span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$5,401.50<i class="ri-arrow-up-s-fill text-success lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-5" class="stock-sparkline-charts">
+                                <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-secondary-transparent p-2 avatar-sm">
+                                            <i class="bi bi-phone text-secondary"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Samsung</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-success">+2.14%</span>
+                                    <span class="d-block fw-medium fs-14">SSNLF</span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$10,732.12<i class="ri-arrow-up-s-fill text-success lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-6" class="stock-sparkline-charts">
+                                                                      <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="card custom-card">
+                        <div class="card-body">
+                            <div class="d-flex gap-2 flex-wrap align-items-start justify-content-between">
+                                <div class="d-flex flex-fill align-items-center">
+                                    <div class="me-2">
+                                        <span class="avatar avatar-rounded bg-info-transparent p-2 avatar-sm">
+                                            <i class="bi bi-nvidia text-info"></i>
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="d-block text-default fs-14">Nvidia</span>
+                                    </div>
+                                </div>
+                                <div class="fs-12 text-end">
+                                    <span class="d-block text-danger">-2.13%</span>
+                                    <span class="d-block fw-medium fs-14">NVDA</span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-fill align-items-end gap-2 justify-content-between">
+                                <div>
+                                    <span class="d-block text-muted">Current Value:</span>
+                                    <span class="d-block ms-auto fs-15 fw-medium">$23,235.25<i class="ri-arrow-down-s-fill text-danger lh-1 align-middle fs-20 ms-1"></i></span>
+                                </div>
+                                <div id="stock-7" class="stock-sparkline-charts">
+                                                                                  <app-apex-chart [chartOptions]="chartOptions1"></app-apex-chart>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </swiper-slide>
+                    </swiper-container>
+                 
+              </div>
+          </div>
+      </div>
+      <div class="col-xxl-9">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <div class="card-title">Stock Market Value</div>
+                  <div class="d-flex gap-2">
+                      <div class="btn btn-outline-light border btn-full btn-sm">Today</div>
+                      <div class="btn btn-outline-light border btn-full btn-sm">Weakly</div>
+                      <div class="btn btn-light border btn-full btn-sm">Yearly</div>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <div class="d-sm-flex align-items-end  p-3 bg-light gap-5 flex-wrap">
+                      <div class="min-w-fit-content me-3">
+                          <p class="mb-1">Total Investment</p>
+                          <h4 class="fw-medium mb-0">$15,874.50<span class="badge bg-success ms-2 fs-9"><i class="ti ti-trending-up me-1"></i>0.32%</span></h4>
+                      </div>
+                      <div class="min-w-fit-content">
+                          <p class="mb-1">Market Cap</p>
+                          <h4 class="fw-medium mb-0">$124,784.23<span class="badge bg-danger ms-2 fs-9"><i class="ti ti-trending-down me-1"></i>0.12%</span></h4>
+                      </div>
+                      <div class="min-w-fit-content">
+                          <p class="mb-1 fs-12 text-muted">
+                              <span class="text-success">+124.25</span>
+                              <i class="mdi mdi-circle-small"></i>
+                              <span>Yesterday</span>
+                          </p>
+                          <p class="mb-0 fs-11 text-muted">
+                              <span>Jun 16, 2022</span>
+                              <i class="mdi mdi-circle-small"></i>
+                              <span>10:45 AM</span>
+                              <i class="mdi mdi-circle-small"></i>
+                              <span>UTC +5:30</span>
+                          </p>
+                      </div>
+                      <div class="flex-1 text-sm-end mt-2 mt-sm-0 ms-auto">
+                          <a href="javascript:void(0);" class="btn btn-w-lg btn-primary1-light"><i class="ti ti-plus me-1"></i>Compare</a>
+                      </div>
+                  </div>
+                  <div id="stockCap-area">
+                    <app-apex-chart [chartOptions]="chartOptions2"></app-apex-chart>
+
+                  </div>
+                  <div id="stockCap">
+                    <app-apex-chart [chartOptions]="chartOptions3"></app-apex-chart>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xxl-3">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <div class="card-title">
+                      My Watchlist
+                  </div>
+                  <button type="button" class="btn btn-sm btn-light"> View All<i class="ti ti-arrow-narrow-right ms-1"></i></button>
+              </div>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <app-spk-reusable-tables   tableClass="text-nowrap"
+                    [showCheckbox]="false">
+                    @for(stock of stocks;track $index){
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="avatar avatar-md p-2 avatar-rounded border border-{{stock.bg1}} border-opacity-10 bg-{{stock.bg1}}-transparent">
+                                        <img [src]="stock.src"  alt="" class="invert-1">
+                                    </span>
+                                    <div>
+                                        <a href="javascript:void(0);" class="fw-medium"> {{stock.brand}}</a>
+                                        <span class="d-block text-muted fs-12"> {{stock.code}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-end">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="flex-fill">
+                                        <div id="apple-change">
+                                          <app-apex-chart [chartOptions]="stock.chartOptions"></app-apex-chart>
+                                        </div>
+                                    </div>
+                                    <div class="flex-fill">
+                                        <p class="mb-0"> {{stock.price}}</p>
+                                        <p class="text-{{stock.bg}} mb-0">{{stock.percent}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    </app-spk-reusable-tables>
+                
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End:: row-1 -->
+
+  <!-- Start:: row-2 -->
+  <div class="row">
+      <div class="col-xxl-3 col-lg-6">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <h6 class="card-title">Statistics</h6>
+                  <button type="button" class="btn btn-sm btn-light"> View All<i class="ti ti-arrow-narrow-right ms-1"></i></button>
+              </div>
+              <div class="card-body">
+                  <div id="portfolio">
+                    <app-apex-chart [chartOptions]="chartOptions11"></app-apex-chart>
+
+                  </div>
+              </div>
+              <div class="card-footer p-3 my-2">
+                  <div class="row row-cols-12">
+                      <div class="col p-0">
+                          <div class="text-center"> 
+                              <i class="ri-circle-fill p-1 lh-1 fs-7 rounded-2 bg-primary-transparent text-primary"></i>
+                              <span class="text-muted fs-12 mb-1 rounded-dot dot-primary d-inline-block ms-2">Stocks
+                              </span>
+                              <div><span class="fs-16 fw-medium">1,624</span> </div>
+                          </div>
+                      </div>
+                      <div class="col p-0">
+                          <div class="text-center"> 
+                              <i class="ri-circle-fill p-1 lh-1 fs-7 rounded-2 bg-primary1-transparent text-primary1"></i>
+                              <span class="text-muted fs-12 mb-1 rounded-dot dot-secondary d-inline-block ms-2">Funds
+                              </span>
+                              <div><span class="fs-16 fw-medium">1,267</span></div>
+                          </div>
+                      </div>
+                      <div class="col p-0">
+                          <div class="text-center"> 
+                              <i class="ri-circle-fill p-1 lh-1 fs-7 rounded-2 bg-primary2-transparent text-primary2"></i>
+                              <span class="text-muted fs-12 mb-1 rounded-dot dot-success d-inline-block ms-2">Bond
+                              </span>
+                              <div><span class="fs-16 fw-medium">1,153</span> </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xxl-6 col-lg-6">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header  justify-content-between">
+                  <div class="card-title">My Stocks</div>
+                  <spk-dropdowns [Customclass]="'dropdown'" 
+                  [class]="'btn btn-light btn-sm text-muted no-caret'" [title]="'All Stocks'" [Icon]="true"
+                  [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu'">
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);"> All Stocks</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Wishlist</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Stocks</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Crypto</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">ETFs</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Bonds</a></li>
+              </spk-dropdowns>
+              </div>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <app-spk-reusable-tables [columns]="stockColumns"   tableClass="table-hover text-nowrap"
+                    [showCheckbox]="false">
+                    @for(stock of mystocks;track $index){
+                        <tr>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <span class="avatar rounded-circle avatar-sm bg-{{stock.bg}}-transparent svg-{{stock.bg}}">
+                                        <i class="ri-{{stock.icon}}-fill fs-16"></i>
+                                    </span>
+                                    <div class="flex-fill">
+                                        <div>{{stock.title}}</div>
+                                        <div class="text-muted">{{stock.code}}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{stock.quantity}}</td>
+                            <td class="fw-medium">{{stock.price}}</td>
+                            <td><span class="text-{{stock.bg1}}">{{stock.change}}</span></td>
+                            <td>{{stock.value}}</td>
+                            <td class="btn-list">
+                                <a href="javascript:void(0);" class="btn btn-sm btn-primary-light">Buy</a>
+                                <a href="javascript:void(0);" class="btn btn-sm btn-primary1-light">Sell</a>
+                            </td>
+                        </tr>
+
+                    }</app-spk-reusable-tables>
+                   
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xxl-3">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <h6 class="card-title">Growth Analysis</h6>
+                  <button type="button" class="btn btn-sm btn-light"> View All<i class="ti ti-arrow-narrow-right ms-1"></i></button>
+              </div>
+              <div class="card-body pb-1">
+                  <div class="p-3 bg-light text-default rounded border border-dashed d-flex justify-content-between gap-2 align-items-end">
+                      <div>
+                          <span class="d-block mb-1">Tesla, Inc (TSLA)</span>
+                          <h5 class="fw-semibold lh-1 mb-0">$ 17,782.00</h5>
+                      </div>
+                      <span class="badge bg-success fw-semibold ms-2">0.64%<i class="ri-arrow-up-s-line ms-1"></i></span>
+                  </div>
+                  <div id="visitors-report">
+                    <app-apex-chart [chartOptions]="chartOptions12"></app-apex-chart>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End:: row-2 -->
+
+  <!-- Start:: row-3 -->
+  <div class="row">
+      <div class="col-xl-6">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <div class="card-title">
+                      Transaction History
+                  </div>
+                  <spk-dropdowns [Customclass]="'dropdown'" 
+                  [class]="'btn btn-light btn-sm  no-caret'" [title]="'All'" [Icon]="true"
+                  [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu dropdown-menu-end'">
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Buy</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Sell</a></li>
+              </spk-dropdowns>
+              </div>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <app-spk-reusable-tables [columns]="transactionColumns"   tableClass="table-hover text-nowrap"
+                    [showCheckbox]="false">
+                    @for(transaction of transactions;track $index){
+                        <tr>
+                            <td>{{transaction.date}}</td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="avatar avatar-sm p-1 avatar-rounded border border-{{transaction.bg}} border-opacity-10 bg-{{transaction.bg}}-transparent">
+                                        @if(transaction.src){
+                                            <img [src]="transaction.src"  alt="" class="invert-1">
+                                        }
+                                        @else {
+
+                                            <i class="ri-netflix-line"></i>
+                                        }
+
+                                    </span>
+                                    <div>
+                                        <a href="javascript:void(0);" class="fw-medium">{{transaction.code}}</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{transaction.shares}}</td>
+                            <td><span class="badge bg-{{transaction.typebg}}-transparent">{{transaction.type}}</span></td>
+                            <td>
+                                <div class="fw-medium">{{transaction.price}}</div>
+                                <div class="text-muted">Value: {{transaction.value}} </div>
+                            </td>
+                            <td><span class="text-{{transaction.bg1}}">{{transaction.change}} </span></td>
+                        </tr>
+                    }
+                    </app-spk-reusable-tables>
+                    
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-6">
+          <div class="card custom-card overflow-hidden">
+              <div class="card-header justify-content-between">
+                  <div class="card-title">
+                      Market Movers
+                  </div>
+                  <spk-dropdowns [Customclass]="'dropdown'" 
+                  [class]="'btn btn-light btn-sm  no-caret'" [title]="'All'" [Icon]="true"
+                  [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" [Menuclass]="'dropdown-menu dropdown-menu-end'">
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Buy</a></li>
+                  <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Sell</a></li>
+              </spk-dropdowns>
+              </div>
+              <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <app-spk-reusable-tables [columns]="marketColumns"   tableClass="text-nowrap"
+                    [showCheckbox]="false">
+                    @for(market of markets;track $index){
+                        <tr>
+                            <td>{{market.symbol}}</td>
+                            <td>{{market.name}}</td>
+                            <td><span class="text-{{market.bg}}">{{market.change}}</span></td>
+                            <td class="fw-medium fs-14">{{market.price}}</td>
+                            <td><span class="text-{{market.bg}}">{{market.change1}}</span></td>
+                            <td>{{market.volume}}</td>
+                        </tr>
+                    }
+                    </app-spk-reusable-tables>
+                 
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End:: row-3 -->

@@ -1,0 +1,78 @@
+<div class="card">
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4 class="card-title mb-0">Tarifas de Asistencia Vial</h4>
+        <button class="btn btn-primary" (click)="crearNuevoTarifario()">
+          <i class="ti ti-plus"></i> Nuevo Tarifario
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <!-- Tabla de Tarifarios -->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Tipo de Vehículo</th>
+              <th>Tipo de Tarifa</th>
+              <th>Proveedor</th>
+              <th>Costo por Kilómetro</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tarifario of tarifarios">
+              <td>{{ tarifario.estado }}</td>
+              <td>{{ getTipoVehiculoNombre(tarifario.tipoVehiculo) }}</td>
+              <td>
+                <span class="badge" [ngClass]="tarifario.proveedorId ? 'bg-info' : 'bg-success'">
+                  {{ tarifario.proveedorId ? 'Específica' : 'General' }}
+                </span>
+              </td>
+              <td>
+                {{ tarifario.proveedorNombre || 'N/A' }}
+              </td>
+              <td class="text-end">{{ tarifario.costoPorKilometro | currency:'USD':'symbol':'1.2-2' }}</td>
+              <td>
+                <button class="btn btn-warning btn-sm me-2" (click)="editarTarifario(tarifario.id)">
+                  <i class="ti ti-edit"></i> Editar
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="confirmarEliminacion(tarifario.id)">
+                  <i class="ti ti-trash"></i> Eliminar
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="tarifarios.length === 0">
+              <td colspan="6" class="text-center">No hay tarifarios registrados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Modal de Confirmación -->
+      <div class="modal" [class.show]="mostrarConfirmacion" 
+           [style.display]="mostrarConfirmacion ? 'block' : 'none'">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmar Eliminación</h5>
+              <button type="button" class="btn-close" (click)="cerrarConfirmacion()"></button>
+            </div>
+            <div class="modal-body">
+              ¿Está seguro que desea eliminar este tarifario?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="cerrarConfirmacion()">
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-danger" (click)="eliminarTarifario()">
+                Confirmar Eliminación
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-backdrop fade show" *ngIf="mostrarConfirmacion"></div>
+    </div>
+  </div>

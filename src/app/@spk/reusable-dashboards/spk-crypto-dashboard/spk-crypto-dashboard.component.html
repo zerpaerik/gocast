@@ -1,0 +1,29 @@
+<div class="card custom-card">
+    <div class="card-body">
+      <div class="d-flex align-items-center gap-2 justify-content-between">
+        <div class="d-flex align-items-start gap-2">
+          <div class="lh-1 avatar avatar-sm p-1 bg-light avatar-rounded">
+            <img [src]="imgSrc" [alt]="name" class="w-auto" />
+          </div>
+          <div>
+            <h5 class="mb-0">
+              {{ value }} 
+              <span class="text-muted fw-medium fs-13">{{ symbol }}</span>
+            </h5>
+            <p class="mb-0 text-muted fs-12">{{ name }}</p>
+          </div>
+        </div>
+        <div [id]="id + '-marketcap'">
+          <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-2 justify-content-between mt-3 bg-light px-2 p-1 rounded-2">
+        <p class="mb-0 fw-medium text-muted py-1">{{ price }}</p>
+        <div [ngClass]="changeType">
+          <i class="ti" [ngClass]="'ti-trending-' + (changeType === 'success' ? 'up' : 'down') + ' me-1'"></i>
+          {{ change }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

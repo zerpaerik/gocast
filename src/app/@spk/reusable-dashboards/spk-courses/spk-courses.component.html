@@ -1,0 +1,18 @@
+
+    <div class="card custom-card overflow-hidden">
+      <div class="card-body text-center">
+        <span class="avatar avatar-md avatar-rounded svg-white" [ngClass]="badgeColor" [innerHTML]="icon">
+          <!-- <svg [innerHTML]="icon"></svg> -->
+        </span>
+        <p class="mb-1 mt-3 fw-medium">{{ title }}</p>
+        <h4 class="fw-semibold">{{ value }}</h4>
+        <div class="text-muted fs-13">
+          {{ subtitle }}
+          <span class="mb-0 badge rounded-pill" [ngClass]="bgColor">
+            {{ percentage }}
+            <i [class]="badgeIcon + ' fs-10 align-middle ms-1'"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  

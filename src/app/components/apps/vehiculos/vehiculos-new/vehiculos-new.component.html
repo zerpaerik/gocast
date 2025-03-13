@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-showcode-card [title]="' Crear Vehículo de alta gama'" [prism]="prismCode.validationTS1">
+
+
+            <form class="row g-3">
+                
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Marca</label>
+                    <select class="form-select form-select-lg"
+                        aria-label=".form-select-lg example">
+                        <option selected="">Seleccione</option>
+                        <option value="1">Chevrolet</option>
+                        <option value="2">Ford</option>
+                        <option value="3">Toyota</option>
+                    </select>
+                    
+                </div>
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Modelo</label>
+                    <select class="form-select form-select-lg"
+                        aria-label=".form-select-lg example">
+                        <option selected="">Seleccione</option>
+                        <option value="1">Corsa</option>
+                        <option value="2">Ka</option>
+                        <option value="3">Otro</option>
+                    </select>
+                    
+                </div>
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Color</label>
+                    <select class="form-select form-select-lg"
+                        aria-label=".form-select-lg example">
+                        <option selected="">Seleccione</option>
+                        <option value="1">Azul</option>
+                        <option value="2">Amarillo</option>
+                        <option value="3">Blanco</option>
+                        <option value="3">Rojo</option>
+                        <option value="3">Negro</option>
+                    </select>
+                    
+                </div>
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Año</label>
+                    <input type="number" class="form-control" id="validationDefault01"
+                    required formControlName="name">
+                    
+                </div>
+                <br><br><br>
+                
+                <div class="col-12">
+                    <div class="">
+                        <a class="btn btn-primary btn-wave" href="/apps/vehiculos/vehiculos">Enviar</a>
+                    </div>
+                </div>
+            </form>
+            </app-showcode-card>
+    
+    </div>
+</div>

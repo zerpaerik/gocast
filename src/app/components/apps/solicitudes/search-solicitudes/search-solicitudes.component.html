@@ -1,0 +1,219 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Consulta de Solicitudes</h4>
+  </div>
+  <div class="card-body">
+    <!-- Formulario de búsqueda -->
+    <form [formGroup]="searchForm" (ngSubmit)="buscar()" *ngIf="!mostrarDetalle">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <div class="form-group">
+            <label class="form-label">Número de Cédula o Póliza</label>
+            <input type="text" class="form-control" formControlName="criterio" 
+                   placeholder="Ingrese número de cédula o póliza">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary mt-4">
+            Buscar
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Lista de resultados -->
+    <div class="table-responsive" *ngIf="solicitudes.length > 0 && !mostrarDetalle">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cédula</th>
+            <th>Póliza</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let solicitud of solicitudes">
+            <td>{{ solicitud.nombre }}</td>
+            <td>{{ solicitud.apellido }}</td>
+            <td>{{ solicitud.cedula }}</td>
+            <td>{{ solicitud.numeroPoliza }}</td>
+            <td>
+              <span [class]="'badge ' + (solicitud.estado === 'Aprobada' ? 'bg-success' : 'bg-warning')">
+                {{ solicitud.estado }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-info btn-sm" (click)="verDetalle(solicitud)">
+                <i class="ti ti-eye"></i> Ver Detalle
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Detalle de la solicitud -->
+    <div *ngIf="mostrarDetalle && solicitudSeleccionada" class="mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <button class="btn btn-secondary" (click)="volver()">
+          <i class="ti ti-arrow-left"></i> Volver
+        </button>
+        <button class="btn" [class.btn-warning]="!modoEdicion" [class.btn-danger]="modoEdicion"
+                (click)="modoEdicion ? cancelarEdicion() : toggleEdicion()">
+          <i class="ti" [class.ti-edit]="!modoEdicion" [class.ti-x]="modoEdicion"></i>
+          {{ modoEdicion ? 'Cancelar Edición' : 'Editar Solicitud' }}
+        </button>
+      </div>
+
+      <!-- Modo Vista -->
+      <div class="card" *ngIf="!modoEdicion">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Detalle de la Solicitud</h5>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <p><strong>Nombre:</strong> {{ solicitudSeleccionada.nombre }}</p>
+              <p><strong>Apellido:</strong> {{ solicitudSeleccionada.apellido }}</p>
+              <p><strong>Cédula:</strong> {{ solicitudSeleccionada.cedula }}</p>
+              <p><strong>Compañía de Seguro:</strong> {{ solicitudSeleccionada.companiaSeguro }}</p>
+              <p><strong>Número de Póliza:</strong> {{ solicitudSeleccionada.numeroPoliza }}</p>
+            </div>
+            <div class="col-md-6">
+              <p><strong>Origen:</strong> {{ solicitudSeleccionada.origen }}</p>
+              <p><strong>Destino:</strong> {{ solicitudSeleccionada.destino }}</p>
+              <p><strong>Proveedor:</strong> {{ solicitudSeleccionada.proveedor }}</p>
+              <p><strong>Estado:</strong> {{ solicitudSeleccionada.estado }}</p>
+              <p><strong>Servicios:</strong> {{ solicitudSeleccionada.servicios?.join(', ') }}</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h6>Documentos Asociados</h6>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Nombre del Documento</th>
+                    <th>Tipo</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let doc of solicitudSeleccionada.documentos">
+                    <td>{{ doc.nombre }}</td>
+                    <td>{{ doc.tipo }}</td>
+                    <td>
+                      <button class="btn btn-primary btn-sm">
+                        <i class="ti ti-download"></i> Descargar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modo Edición -->
+      <div class="card" *ngIf="modoEdicion">
+        <div class="card-body">
+          <h5 class="card-title mb-4">Editar Solicitud</h5>
+          
+          <form [formGroup]="editForm" (ngSubmit)="guardarCambios()">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label class="form-label">Nombre</label>
+                  <input type="text" class="form-control" formControlName="nombre">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Apellido</label>
+                  <input type="text" class="form-control" formControlName="apellido">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Cédula</label>
+                  <input type="text" class="form-control" formControlName="cedula">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Compañía de Seguro</label>
+                  <input type="text" class="form-control" formControlName="companiaSeguro">
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Número de Póliza</label>
+                  <input type="text" class="form-control" formControlName="numeroPoliza">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label class="form-label">Origen</label>
+                  <select class="form-control" formControlName="origen">
+                    <option value="">Seleccione origen</option>
+                    <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion">
+                      {{ ubicacion }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Destino</label>
+                  <select class="form-control" formControlName="destino">
+                    <option value="">Seleccione destino</option>
+                    <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion">
+                      {{ ubicacion }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Proveedor</label>
+                  <select class="form-control" formControlName="proveedor">
+                    <option value="">Seleccione proveedor</option>
+                    <option *ngFor="let proveedor of proveedores" [value]="proveedor">
+                      {{ proveedor }}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group mb-3">
+                  <label class="form-label">Estado</label>
+                  <select class="form-control" formControlName="estado">
+                    <option value="En Proceso">En Proceso</option>
+                    <option value="Aprobada">Aprobada</option>
+                    <option value="Rechazada">Rechazada</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Selección de Servicios -->
+            <div class="form-group mb-4">
+              <label class="form-label">Servicios</label>
+              <div class="row">
+                <div class="col-md-6 col-lg-3" *ngFor="let servicio of serviciosDisponibles">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox"
+                           [checked]="isServicioSeleccionado(servicio)"
+                           (change)="toggleServicio(servicio)">
+                    <label class="form-check-label">
+                      {{ servicio }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button type="submit" class="btn btn-success me-2" [disabled]="!editForm.valid">
+                <i class="ti ti-check"></i> Guardar Cambios
+              </button>
+              <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">
+                <i class="ti ti-x"></i> Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

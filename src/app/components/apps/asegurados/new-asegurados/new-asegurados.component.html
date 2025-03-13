@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-showcode-card [title]="' Crear Asegurado'" [prism]="prismCode.validationTS1">
+
+
+            <form class="row g-3">
+                
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="validationDefault01"
+                    required formControlName="name">
+                    
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="validationDefault01"
+                    required formControlName="name">
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">Cédula</label>
+                    <input type="number" class="form-control" id="validationDefault01"
+                    required formControlName="name">
+                    
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">Compañia de seguros</label>
+                    <select class="form-select form-select-lg"
+                    aria-label=".form-select-lg example">
+                    <option selected="">Seleccione</option>
+                    <option value="1">Seguros Caracas</option>
+                    <option value="2">Seguros Oceánica</option>
+                    <option value="3">Seguros Táchira</option>
+                  </select>
+                    
+                </div>
+                <div class="col-md-3">
+                    <label for="validationDefault01" class="form-label">Número de póliza</label>
+                    <input type="number" class="form-control" id="validationDefault01"
+                    required formControlName="name">
+                    
+                </div>
+                <br><br><br>
+                
+                <div class="col-12">
+                    <div class="">
+                        <a class="btn btn-primary btn-wave" href="/apps/asegurados/search-asegurados">Enviar</a>
+                    </div>
+                </div>
+            </form>
+            </app-showcode-card>
+    
+    </div>
+</div>

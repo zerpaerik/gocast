@@ -1,0 +1,95 @@
+<app-page-header title="Pie Charts" title1="Apex Charts" activeTitle="Pie Charts"></app-page-header>
+
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Basic Pie Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="pie-basic">
+                    <app-apex-chart  [chartOptions]="chartOptions"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Simple Donut Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="donut-simple">
+                    <app-apex-chart  [chartOptions]="chartOptions1"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Updating Donut Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="donut-update">
+                    <app-apex-chart #chart  [chartOptions]="chartOptions2"></app-apex-chart>
+                 
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Monochrome Pie Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="pie-monochrome">
+                    <app-apex-chart  [chartOptions]="chartOptions3"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Gradient Donut Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="donut-gradient">
+                    <app-apex-chart  [chartOptions]="chartOptions4"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Donut Chart With Patterns</div>
+            </div>
+            <div class="card-body">
+                <div id="donut-pattern">
+                    <app-apex-chart  [chartOptions]="chartOptions5"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Image Filled Pie Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="pie-image">
+                    <app-apex-chart  [chartOptions]="chartOptions6"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

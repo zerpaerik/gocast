@@ -1,0 +1,38 @@
+
+    <div class="card custom-card">
+      <div class="card-header">
+        <div class="card-title">
+          Recent Transactions
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mb-3">
+            @for(transaction of transactions;track $index){
+
+                <li  class="mb-3">
+                  <div class="d-flex align-items-center flex-wrap gap-2">
+                    <div class="lh-1">
+                      <span class="avatar avatar-md avatar-rounded p-1" class="{{transaction.avatarClass}}">
+                        <i class="{{transaction.iconClass}}"></i>
+                      </span>
+                    </div>
+                    <div class="flex-fill lh-1">
+                      <span class="fw-medium mb-2 d-block fs-14">{{ transaction.title }}</span>
+                      <span class="d-block text-muted fs-12">{{ transaction.date }}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <span class="{{transaction.isPositive ? 'text-success' : 'text-danger'}}" >
+                        <i class="{{transaction.isPositive ? 'ti ti-arrow-narrow-up' : 'ti ti-arrow-narrow-down'}}" ></i>
+                        {{ transaction.percentage }}
+                      </span>
+                    </div>
+                  </div>
+                </li>
+            }
+        </ul>
+        <div class="text-center">
+          <a href="javascript:void(0);" class="text-secondary fw-medium text-decoration-underline"> View All Transactions</a>
+        </div>
+      </div>
+    </div>
+  

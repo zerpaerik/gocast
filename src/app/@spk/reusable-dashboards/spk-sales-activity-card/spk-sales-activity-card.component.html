@@ -1,0 +1,33 @@
+<div class="card custom-card">
+    <div class="card-header justify-content-between">
+      <div class="card-title">Recent Activity</div>
+      <a href="javascript:void(0);" class="btn btn-light btn-wave btn-sm text-muted waves-effect waves-light">View All</a>
+    </div>
+    <div class="card-body">
+      <ul class="list-unstyled recent-activity-list">
+        @for(activity of activities;track $index){
+
+            <li>
+              <div>
+                <div>
+                  <div class="fw-medium fs-14">{{ activity.name }}</div>
+                  <span class="fs-12 activity-time">{{ activity.time }}</span>
+                </div>
+                <span class="d-block text-muted">
+                  {{ activity.descriptionStart }} 
+                  <span class="{{activity.actionClass}}">{{ activity.action }}</span>
+                  {{ activity.descriptionEnd }}
+                  @if(activity.status){
+
+                      <span>
+                        to <span class="{{activity.statusClass}}">{{ activity.status }}</span>
+                      </span>
+                  }
+                </span>
+              </div>
+            </li>
+        }
+      </ul>
+    </div>
+  </div>
+  

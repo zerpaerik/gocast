@@ -1,0 +1,39 @@
+<div class="card custom-card overflow-hidden">
+  @if(cardData.imageTop){
+
+    <a href="javascript:void(0);" class="{{ cardData.imageClass}}">
+      <img [src]="cardData.image" class="card-img-top {{ cardData.imageClass1}}" [alt]="cardData.altText || 'Blog Image'" />
+    </a>
+  }
+  <div class="card-body">
+    <a [routerLink]="cardData.routerLink" class="h5 fw-semibold mb-2 d-block lh-base">
+      {{ cardData.title }}
+    </a>
+    <p class="mb-3">
+      {{ cardData.description }}
+      <a href="javascript:void(0);" 
+         class="fw-medium text-primary ms-2 align-middle fs-12 text-Augoration-underline d-inline-block">
+        Read More ?
+      </a>
+    </p>
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <div class="avatar {{cardData.avatarClass}} avatar-rounded me-2">
+          <img [src]="cardData.authorImage" [alt]="cardData.authorName || 'Author Image'" />
+        </div>
+        <div>
+          <p class="mb-0 fw-medium">{{ cardData.authorName }}</p>
+          <span class="text-muted fs-12 mb-0">{{ cardData.date }}</span>
+        </div>
+      </div>
+      <div class="avatar avatar-sm bg-danger-transparent avatar-rounded">
+        <i class="ri-heart-line text-danger"></i>
+      </div>
+    </div>
+  </div>
+  @if(cardData.imageBottom){
+    <a href="javascript:void(0);" class="{{ cardData.imageClass}}"> 
+      <img [src]="cardData.image" class="card-img-top {{ cardData.imageClass1}}" [alt]="cardData.altText || 'Blog Image'" />
+    </a>
+  }
+</div>

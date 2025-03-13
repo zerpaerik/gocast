@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-showcode-card [title]="' Crear Funcionalidad'" [prism]="prismCode.validationTS1">
+
+
+            <form class="row g-3">
+                
+                <div class="col-md-4">
+                    <label for="validationDefault01" class="form-label">Nombre de funcionalidad</label>
+                    <input type="text" class="form-control" id="validationDefault01"
+                        required formControlName="name" >
+                </div>
+                <div class="col-md-8">
+                    <label for="validationDefault02" class="form-label">Ruta</label>
+                    <input type="text" class="form-control" id="validationDefault02"
+                         required placeholder="/ruta/de/modulo/u/opcion" formControlName="name3">
+                </div>
+                
+                <div class="col-12">
+                    <div class="">
+                        <a class="btn btn-primary btn-wave" href="/apps/gestion/funcionalidades">Enviar</a>
+                    </div>
+                </div>
+            </form>
+            </app-showcode-card>
+    
+    </div>
+</div>

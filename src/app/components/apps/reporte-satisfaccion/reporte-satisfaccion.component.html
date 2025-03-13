@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Reporte de Satisfacción</h5>
+                </div>
+
+                <div class="card-body">
+                    <form [formGroup]="filtrosForm" (ngSubmit)="buscar()">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="fechaDesde">Fecha Desde *</label>
+                                    <input type="date" class="form-control" id="fechaDesde" formControlName="fechaDesde">
+                                    <div *ngIf="fechaDesdeControl?.touched && fechaDesdeControl?.invalid" 
+                                         class="text-danger small mt-1">
+                                        La fecha inicial es requerida
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="fechaHasta">Fecha Hasta *</label>
+                                    <input type="date" class="form-control" id="fechaHasta" formControlName="fechaHasta">
+                                    <div *ngIf="fechaHastaControl?.touched && fechaHastaControl?.errors" 
+                                         class="text-danger small mt-1">
+                                        <span *ngIf="fechaHastaControl?.errors?.['required']">
+                                            La fecha final es requerida
+                                        </span>
+                                        <span *ngIf="fechaHastaControl?.errors?.['fechaInvalida']">
+                                            La fecha final debe ser mayor a la fecha inicial
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="tipoServicio">Tipo de Servicio</label>
+                                    <select class="form-control" id="tipoServicio" formControlName="tipoServicio">
+                                        <option value="">Todos los servicios</option>
+                                        <option *ngFor="let tipo of tiposServicio" [value]="tipo">
+                                            {{tipo}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn btn-secondary me-2" (click)="limpiar()">
+                                    <i class="ti ti-refresh me-1"></i>
+                                    Limpiar
+                                </button>
+                                <button type="submit" class="btn btn-primary" [disabled]="!filtrosForm.valid">
+                                    <i class="ti ti-search me-1"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row mt-4" *ngIf="mostrarResultados">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div *ngIf="resultados.length > 0">
+                                    <span class="text-muted">Total de registros: {{resultados.length}}</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" (click)="exportarCSV()" 
+                                            [disabled]="resultados.length === 0">
+                                        <i class="ti ti-file-spreadsheet me-1"></i>
+                                        Exportar Excel
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div *ngIf="resultados.length === 0" class="alert alert-info">
+                                <i class="ti ti-info-circle me-2"></i>
+                                No se encontraron registros para los filtros seleccionados
+                            </div>
+
+                            <div class="table-responsive" *ngIf="resultados.length > 0">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Tipo de Servicio</th>
+                                            <th class="text-center">Calificación Promedio</th>
+                                            <th class="text-center">Calificación Mínima</th>
+                                            <th class="text-center">Calificación Máxima</th>
+                                            <th class="text-center">Total Servicios</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of resultados">
+                                            <td>{{item.tipoServicio}}</td>
+                                            <td class="text-center">{{item.calificacionPromedio.toFixed(2)}}</td>
+                                            <td class="text-center">{{item.calificacionMinima}}</td>
+                                            <td class="text-center">{{item.calificacionMaxima}}</td>
+                                            <td class="text-center">{{item.totalServicios}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

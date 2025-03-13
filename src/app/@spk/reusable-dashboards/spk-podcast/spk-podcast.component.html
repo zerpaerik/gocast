@@ -1,0 +1,32 @@
+
+    <div class="d-flex align-items-center p-3 bg-light flex-wrap gap-2 flex-sm-nowrap">
+      <img [src]="podcast.image" alt="img" class="avatar avatar-xxl me-2">
+      <div class="w-100">
+        <div class="d-flex align-items-start justify-content-between mb-4">
+          <div>
+            <a href="javascript:void(0);">
+              <h6 class="fw-semibold mb-0 text-break">{{ podcast.title }}</h6>
+            </a>
+            <span class="text-muted fs-12">By {{ podcast.author }}</span>
+          </div>
+          <spk-dropdowns [Customclass]="'dropdown'" [class]="'btn-light btn-icons btn-sm text-muted no-caret'"
+          [Menuclass]="'dropdown-menu dropdown-menu-end'"  [Icon]="true" [IconClass]="'ri-more-2-fill text-muted'">
+          <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Week</a></li>
+          <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Day</a></li>
+          <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Year</a></li>
+      </spk-dropdowns>
+        
+        </div>
+        <div class="d-flex align-items-end justify-content-between gap-2 flex-wrap">
+          <button aria-label="button" type="button" class="btn btn-primary btn-sm">
+            <i class="ri-play-fill me-1"></i> Listen Now
+          </button>
+          <div class="d-flex align-items-center gap-3 lh-1">
+            <span class="d-block d-flex align-items-center gap-2 text-muted fw-medium lh-1">
+              <i class="ri-volume-up-line lh-1 align-middle fs-14"></i>{{ podcast.listeners }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  

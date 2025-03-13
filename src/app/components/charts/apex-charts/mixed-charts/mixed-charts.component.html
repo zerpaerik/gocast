@@ -1,0 +1,55 @@
+<app-page-header title="Mixed Charts" title1="Apex Charts" activeTitle="Mixed Charts" ></app-page-header>
+
+ <!-- Start::row-1 -->
+  <div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Line & Column Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="mixed-linecolumn">
+                    <app-apex-chart  [chartOptions]="chartOptions"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Multiple Y-Axis Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="mixed-multiple-y">
+                    <app-apex-chart  [chartOptions]="chartOptions1"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Line & Area Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="mixed-linearea">
+                    <app-apex-chart  [chartOptions]="chartOptions2"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Line,Column & Area Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="mixed-all">
+                    <app-apex-chart  [chartOptions]="chartOptions3"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

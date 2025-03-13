@@ -1,0 +1,44 @@
+<app-page-header title="Scatter Charts" title1="Apex Charts" activeTitle="Scatter Charts" ></app-page-header>
+
+<!-- Start::row-1 -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Basic Scatter Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="scatter-basic">
+                    <app-apex-chart  [chartOptions]="chartOptions"></app-apex-chart>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Datetime Scatter Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="scatter-datetime">
+                    <app-apex-chart  [chartOptions]="chartOptions1"></app-apex-chart>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">Image Fill Scatter Chart</div>
+            </div>
+            <div class="card-body">
+                <div id="scatter-image">
+                    <app-apex-chart  [chartOptions]="chartOptions2"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End::row-1 -->

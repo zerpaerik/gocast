@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Mapa de Proveedores</h5>
+                </div>
+                <div class="card-body">
+                    <div id="map" style="height: 600px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Proveedor -->
+<ng-template #proveedorModal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title">Información del Proveedor</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body" *ngIf="selectedProveedor">
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Datos del Proveedor</h6>
+                <p><strong>Nombre:</strong> {{selectedProveedor.nombre}}</p>
+                <p><strong>Teléfono:</strong> {{selectedProveedor.telefono}}</p>
+                <p><strong>Tipo de Vehículo:</strong> {{selectedProveedor.tipoVehiculo}}</p>
+                <p><strong>Estado:</strong> 
+                    <span [class.text-success]="selectedProveedor.estado === 'activo'"
+                          [class.text-primary]="selectedProveedor.estado === 'disponible'">
+                        {{selectedProveedor.estado | titlecase}}
+                    </span>
+                </p>
+            </div>
+            <div class="col-md-6" *ngIf="selectedProveedor.estado === 'activo'">
+                <h6>Servicios Activos</h6>
+                <div *ngFor="let servicio of selectedProveedor.serviciosActivos" class="mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">{{servicio.numeroServicio}}</h6>
+                            <p class="mb-1"><strong>Tipo:</strong> {{servicio.tipoServicio}}</p>
+                            <p class="mb-1"><strong>Cliente:</strong> {{servicio.cliente.nombre}}</p>
+                            <p class="mb-1"><strong>Teléfono Cliente:</strong> {{servicio.cliente.telefono}}</p>
+                            <p class="mb-1"><strong>Ubicación:</strong> {{servicio.cliente.ubicacion}}</p>
+                            <p class="mb-0"><strong>Estado:</strong> {{servicio.estado}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" *ngIf="selectedProveedor.estado === 'disponible'">
+                <div class="alert alert-info">
+                    <i class="ti ti-info-circle me-2"></i>
+                    Este proveedor está disponible para asignar servicios.
+                </div>
+                <button class="btn btn-primary">
+                    <i class="ti ti-plus me-1"></i>
+                    Asignar Servicio
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close()">Cerrar</button>
+    </div>
+</ng-template>

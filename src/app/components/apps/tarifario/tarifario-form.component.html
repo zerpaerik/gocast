@@ -1,0 +1,92 @@
+<div class="card">
+    <div class="card-header">
+      <h4 class="card-title">{{ modoEdicion ? 'Editar' : 'Nuevo' }} Tarifario</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="tarifarioForm" (ngSubmit)="guardar()">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group mb-3">
+              <label class="form-label">Estado</label>
+              <select class="form-select" formControlName="estado">
+                <option value="">Seleccione un estado</option>
+                <option *ngFor="let estado of estados" [value]="estado">
+                  {{ estado }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="tarifarioForm.get('estado')?.errors?.['required'] && tarifarioForm.get('estado')?.touched">
+                El estado es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group mb-3">
+              <label class="form-label">Tipo de Vehículo</label>
+              <select class="form-select" formControlName="tipoVehiculo">
+                <option value="">Seleccione un tipo</option>
+                <option *ngFor="let tipo of tiposVehiculo" [value]="tipo.id">
+                  {{ tipo.nombre }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="tarifarioForm.get('tipoVehiculo')?.errors?.['required'] && tarifarioForm.get('tipoVehiculo')?.touched">
+                El tipo de vehículo es requerido
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group mb-3">
+              <label class="form-label">¿Tarifa específica para proveedor?</label>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" formControlName="esParaProveedor" id="esParaProveedor">
+                <label class="form-check-label" for="esParaProveedor">
+                  {{ tarifarioForm.get('esParaProveedor')?.value ? 'Sí' : 'No' }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row" *ngIf="tarifarioForm.get('esParaProveedor')?.value">
+          <div class="col-md-4">
+            <div class="form-group mb-3">
+              <label class="form-label">Proveedor</label>
+              <select class="form-select" formControlName="proveedorId">
+                <option value="">Seleccione un proveedor</option>
+                <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">
+                  {{ proveedor.nombre }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="tarifarioForm.get('proveedorId')?.errors?.['required'] && tarifarioForm.get('proveedorId')?.touched">
+                El proveedor es requerido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group mb-3">
+              <label class="form-label">Costo por Kilómetro</label>
+              <input type="number" class="form-control" formControlName="costoPorKilometro"
+                     placeholder="0.00" step="0.01" min="0.01">
+              <div class="invalid-feedback" *ngIf="tarifarioForm.get('costoPorKilometro')?.errors?.['required'] && tarifarioForm.get('costoPorKilometro')?.touched">
+                El costo por kilómetro es requerido
+              </div>
+              <div class="invalid-feedback" *ngIf="tarifarioForm.get('costoPorKilometro')?.errors?.['min']">
+                El costo debe ser mayor a 0
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary me-2" [disabled]="!tarifarioForm.valid">
+            {{ modoEdicion ? 'Actualizar' : 'Crear' }} Tarifario
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="cancelar()">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

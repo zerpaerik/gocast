@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-header">
+      <h4 class="card-title">Carga Masiva de Asegurados</h4>
+    </div>
+    <div class="card-body">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Seleccionar archivo CSV</label>
+            <input 
+              #fileInput
+              type="file" 
+              class="form-control" 
+              accept=".csv"
+              (change)="onFileSelected($event)">
+            <small class="form-text text-muted">
+              El archivo debe contener las columnas: Nombre, Apellido, Cédula, Póliza
+            </small>
+          </div>
+        </div>
+      </div>
+  
+      <div class="table-responsive" *ngIf="asegurados.length > 0">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Cédula</th>
+              <th>Póliza</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asegurado of asegurados">
+              <td>{{ asegurado.nombre }}</td>
+              <td>{{ asegurado.apellido }}</td>
+              <td>{{ asegurado.cedula }}</td>
+              <td>{{ asegurado.poliza }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="mt-3 d-flex justify-content-end">
+          <button class="btn btn-secondary me-2" (click)="limpiarDatos()">
+            Limpiar
+          </button>
+          <button class="btn btn-primary" (click)="guardarDatos()" *ngIf="dataCargada">
+            Guardar Datos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

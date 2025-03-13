@@ -1,0 +1,111 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Nueva Solicitud de Servicio</h4>
+  </div>
+  <div class="card-body">
+    <!-- Búsqueda de Usuario -->
+    <form [formGroup]="searchForm" (ngSubmit)="buscarUsuario()">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <div class="form-group">
+            <label class="form-label">Cédula del Usuario</label>
+            <input type="text" class="form-control" formControlName="cedula" 
+                   placeholder="Ingrese la cédula del usuario">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary mt-4" [disabled]="!searchForm.valid">
+            Buscar Usuario
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Información del Usuario -->
+    <div *ngIf="usuario" class="alert alert-info mb-4">
+      <h6>Usuario Encontrado:</h6>
+      <p class="mb-0">
+        <strong>Nombre:</strong> {{ usuario.nombre }} {{ usuario.apellido }}<br>
+        <strong>Cédula:</strong> {{ usuario.cedula }}<br>
+        <strong>Póliza:</strong> {{ usuario.poliza }}
+      </p>
+    </div>
+
+    <!-- Formulario de Solicitud -->
+    <form *ngIf="mostrarFormulario" [formGroup]="solicitudForm" (ngSubmit)="guardarSolicitud()">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label class="form-label">Punto de Origen</label>
+            <select class="form-control" formControlName="origenId">
+              <option value="">Seleccione origen</option>
+              <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">
+                {{ ubicacion.nombre }} - {{ ubicacion.direccion }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-3">
+            <label class="form-label">Punto de Destino</label>
+            <select class="form-control" formControlName="destinoId">
+              <option value="">Seleccione destino</option>
+              <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">
+                {{ ubicacion.nombre }} - {{ ubicacion.direccion }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <label class="form-label">Proveedor de Servicio</label>
+        <select class="form-control" formControlName="proveedorId">
+          <option value="">Seleccione proveedor</option>
+          <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">
+            {{ proveedor.nombre }} - {{ proveedor.tipo }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Selección Múltiple de Servicios -->
+      <div class="form-group mb-4">
+        <label class="form-label d-flex justify-content-between align-items-center">
+          <span>Servicios Disponibles</span>
+          <span class="badge bg-primary">Seleccionados: {{ serviciosSeleccionados.length }}</span>
+        </label>
+        <div class="row">
+          <div class="col-md-6 col-lg-4" *ngFor="let servicio of servicios">
+            <div class="card mb-3" 
+                 [class.bg-light]="isServicioSeleccionado(servicio)"
+                 [class.border-primary]="isServicioSeleccionado(servicio)"
+                 (click)="toggleServicio(servicio)"
+                 style="cursor: pointer;">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <h6 class="card-title mb-2">{{ servicio.nombre }}</h6>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" 
+                           [checked]="isServicioSeleccionado(servicio)"
+                           (click)="$event.stopPropagation()">
+                  </div>
+                </div>
+                <p class="card-text small text-muted mb-0">{{ servicio.descripcion }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="serviciosSeleccionados.length === 0" class="alert alert-warning mt-2">
+          Debe seleccionar al menos un servicio
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary" 
+                [disabled]="!solicitudForm.valid || serviciosSeleccionados.length === 0">
+          Guardar Solicitud
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-showcode-card [title]="' Crear compañia de seguros'" [prism]="prismCode.validationTS1">
+
+
+            <form class="row g-3">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="validationDefault01" class="form-label">Nombre de compañia</label>
+                        <input type="number" class="form-control" id="validationDefault01"
+                        required formControlName="name">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="validationDefault01" class="form-label">R.I.F</label>
+                        <input type="number" class="form-control" placeholder="Registro de información fiscal"
+                        required formControlName="name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationDefault01" class="form-label">Servicios que presta</label>
+                        <app-spk-ng-select 
+                        [options]="cityOptions"
+                        [selectClass]="'rounded-sm'"
+                        [clearable]="true"
+                        [multiple]="true"
+                        [hideSelected]="true"
+                        [searchable]="true"
+                        [placeholder]="'Buscar servicio'"
+                        [additionalProperties]="{}"
+                        (change)="handleSelectChange($event)">
+                        </app-spk-ng-select>
+                    
+                    </div>
+
+                </div>
+                
+                
+             
+               
+                <br><br><br>
+                
+                <div class="col-12">
+                    <div class="">
+                        <a class="btn btn-primary btn-wave" href="/apps/seguros/seguros">Enviar</a>
+                    </div>
+                </div>
+            </form>
+            </app-showcode-card>
+    
+    </div>
+</div>

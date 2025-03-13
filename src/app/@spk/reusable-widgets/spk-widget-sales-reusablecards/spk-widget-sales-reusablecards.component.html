@@ -1,0 +1,18 @@
+<div class="card custom-card border {{borderClass}} border-opacity-50 overflow-hidden main-content-card">
+    <div class="card-body">
+        <div class="d-flex align-items-start justify-content-between">
+            <div class="flex-grow-1">
+                <span class="text-secondary fw-semibold me-1 d-inline-block badge bg-secondary-transparent">
+                    <i class="fe fe-arrow-up"></i>{{percentageChange}}
+                </span>
+                <h4 class="mt-2 mb-2 fw-medium">{{value}}</h4>
+                <p class="mb-0 fs-12 fw-medium">{{description}}</p>
+            </div>
+            <div>
+                <span class="avatar avatar-md {{avatarClass}}">
+                    <span [innerHTML]="svg"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

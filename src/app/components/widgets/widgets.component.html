@@ -1,0 +1,312 @@
+<app-page-header title="Widgets" title1="Widgets" activeTitle="Widgets"></app-page-header>
+<!-- Start:: row-1 -->
+<div class="row">
+    @for(data of cardData;track $index){
+
+    <div class="col-xxl-3 col-xl-6">
+        <app-spk-widget-top-reusablecard [avatarClass]="data.avatarClass" [title]="data.title" [value]="data.value"
+            [percentage]="data.percentage" [percentageIcon]="data.percentageIcon"
+            [percentageClass]="data.percentageClass" [chartOptions]="data.chartOptions" [svg]="sanitizeIcon(data.svg)">
+        </app-spk-widget-top-reusablecard>
+
+    </div>
+    }
+</div>
+<!-- End:: row-1 -->
+
+<!-- Start::row-2 -->
+<div class="row">
+    @for(sale of widgetsData;track $index){
+    <div class="col-xl-3">
+        <app-spk-widget-sales-reusablecards [borderClass]="sale.borderClass" [avatarClass]="sale.avatarClass"
+            [badgeIcon]="'fe fe-arrow-up'" [percentageChange]="'+0.5%'" [value]="sale.value"
+            [description]="sale.description" [svg]="sanitizeIcon(sale.svg)"></app-spk-widget-sales-reusablecards>
+    </div>
+    }
+</div>
+<!-- End::row-2 -->
+
+<!-- Start:: row-3 -->
+<!-- End:: row-3 -->
+
+<!-- Start:: row-4 -->
+<div class="row">
+    <div class="col-xxl-6 col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Sales Revenue
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="salerevenue">
+                    <app-apex-chart [chartOptions]="chartOptions4"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-12">
+        <div class="card custom-card">
+            <div class="card-header pb-0">
+                <div class="card-title">
+                    Total Sales
+                </div>
+            </div>
+            <div class="card-body p-0 widget-circle-chart">
+                <div id="circlechart">
+                    <app-apex-chart [chartOptions]="chartOptions5"></app-apex-chart>
+                </div>
+            </div>
+            <div class="card-footer p-0 border-top border-block-start-dashed">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-3 ps-5 d-flex gap-2 pb-0">
+                            <div>
+                                <span class="fs-14 visit-gender male ms-1">Average Sales</span>
+                                <div class="mt-1">
+                                    <span class="fs-5 fw-medium">8,777</span>
+                                </div>
+                            </div>
+                            <div class="text-muted fs-13 text-end ms-auto">Increased By
+                                <span class="text-success">1.5%<i class="ti ti-arrow-narrow-up fs-16"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="p-3 ps-5 d-flex gap-2">
+                            <div>
+                                <span class="fs-14 visit-gender female">Average Profit</span>
+                                <div class="mt-1">
+                                    <span class="fs-5 fw-medium">$12,234</span>
+                                </div>
+                            </div>
+                            <div class="text-muted fs-13 text-end ms-auto">Decreased By
+                                <span class="text-danger">0.6%<i class="ti ti-arrow-narrow-down fs-16"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 col-12">
+        <app-spk-widget-total-revenue-card 
+    [cardTitle]="'Total Revenue'" 
+    [totalRevenue]="'$5,874.28'"
+    [mainIncreasePercentage]="'0.5%'"
+    [progressBars]="[
+        { width: 30, colorClass: '' },
+        { width: 20, colorClass: 'bg-primary1' },
+        { width: 23, colorClass: 'bg-primary2' },
+        { width: 27, colorClass: 'bg-primary3' }
+    ]"
+    [revenueItems]="[
+        { title: 'Today Revenue', amount: '$789', statusText: 'Increased By', statusPercentage: '0.5%', statusClass: 'text-success', statusIcon: 'ti ti-arrow-narrow-up fs-16', iconClass: 'ti ti-point-filled text-primary', type: '' },
+        { title: 'This Week Revenue', amount: '$1,887', statusText: 'Decreased By', statusPercentage: '2.8%', statusClass: 'text-danger', statusIcon: 'ti ti-arrow-narrow-down fs-16', iconClass: 'ti ti-point-filled text-primary1', type: 'success' },
+        { title: 'This Month Revenue', amount: '$55,666', statusText: 'Increased By', statusPercentage: '0.5%', statusClass: 'text-success', statusIcon: 'ti ti-arrow-narrow-up fs-16', iconClass: 'ti ti-point-filled text-primary2', type: 'warning' },
+        { title: 'This Month Revenue', amount: '$3,41,173', statusText: 'Decreased By', statusPercentage: '1.2%', statusClass: 'text-danger', statusIcon: 'ti ti-arrow-narrow-down fs-16', iconClass: 'ti ti-point-filled text-primary3', type: 'success' }
+    ]">
+</app-spk-widget-total-revenue-card>
+       
+    </div>
+</div>
+<!-- End:: row-4 -->
+
+<!-- Start:: row-5 -->
+<div class="row">
+    @for(widget of widgetchart;track $index){
+
+    <div class="col-xl-3">
+        <app-spk-widget-stackedchart-reusablecard [title]="widget.title" [value]="widget.value"
+            [percentageChange]="widget.percentageChange" [percentage]="widget.percentage"
+            [changeIcon]="widget.changeIcon" [chartOptions]="widget.chartOptions" [avatarClass]="widget.avatarClass"
+            [svg]="sanitizeIcon(widget.svg)">
+        </app-spk-widget-stackedchart-reusablecard>
+    </div>
+    }
+</div>
+<!-- End:: row-5 -->
+
+<!-- Start:: row-6 -->
+<div class="row">
+    <div class="col-xxl-4 col-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Sales Revenue
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="salerevenue1">
+                    <app-apex-chart [chartOptions]="chartOptions10"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-12">
+        <app-activity-card [activities]="recentActivities"></app-activity-card>
+
+    </div>
+    <div class="col-xxl-4 col-xl-6 col-lg-6 col-md-6 col-12">
+        <app-spk-widget-total-budget-card 
+        [budgetTitle]="'Today Budget'"
+        [budgetAmount]="'$2,78,411'"
+        [increasePercentage]="'0.5'"
+        [incomeItems]="[
+            { title: 'Total-Income',liClass:'border-top', subtitle: 'Average Income Per Hour', value: '$17.03', iconClass: 'ti ti-hourglass fs-22', iconBgClass: 'bg-primary1-transparent text-primary1', valueClass: 'text-primary1' },
+            { title: 'Total-Income', subtitle: 'Average Income Per Hour', value: '$17.03', iconClass: 'ti ti-clock fs-22', iconBgClass: 'bg-primary2-transparent text-primary2', valueClass: 'text-primary2' },
+            { title: 'Total-Income', subtitle: 'Average Income Per Hour', value: '$77.93', iconClass: 'ti ti-bolt fs-22', iconBgClass: 'bg-primary3-transparent text-primary3', valueClass: 'text-primary3' },
+            { title: 'Total-Income', subtitle: 'Average Income Per Hour', value: '$970.63', iconClass: 'ti ti-activity-heartbeat fs-22', iconBgClass: 'bg-secondary-transparent', valueClass: 'text-secondary' }
+        ]">
+    </app-spk-widget-total-budget-card>
+       
+    </div>
+</div>
+<!-- End:: row-6 -->
+
+<!-- Start:: row-7 -->
+<div class="row">
+    @for(card of revenueData;track $index){
+
+    <div class="col-xl-3">
+        <app-spk-widget-revenue-reusable [title]="card.title" [value]="card.value" [bg]="card.bg" [change]="card.change" [arrow]="card.arrow"
+            [changeType]="card.changeType" [iconClass]="card.iconClass" [chartOptions]="card.chartOptions">
+        </app-spk-widget-revenue-reusable>
+
+    </div>
+    }
+
+</div>
+<!-- End:: row-7 -->
+
+<!-- End:: row-8 -->
+<div class="row">
+    <div class="col-xxl-3 col-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Total Visitors
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div id="activecustomers">
+                    <app-apex-chart [chartOptions]="chartOptions15"></app-apex-chart>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="row mt-0">
+                    <div class="col-4">
+                        <h6 class="text-primary mb-1 fw-medium">45K</h6>
+                        <p class="text-muted mb-0 fs-12">Apps</p>
+                    </div>
+                    <div class="col-4">
+                        <h6 class="text-primary1 mb-1 fw-medium">35K</h6>
+                        <p class="text-muted mb-0 fs-12">Offline</p>
+                    </div>
+                    <div class="col-4">
+                        <h6 class="text-primary2 mb-1 fw-medium">10K</h6>
+                        <p class="text-muted mb-0 fs-12">Website</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-6 col-xl-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Sales Revenue
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="salerevenue2">
+                    <app-apex-chart [chartOptions]="chartOptions16"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-12">
+        <div class="card custom-card">
+            <div class="card-header">
+                <div class="card-title">
+                    Top Sales
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="top-sales">
+                    <app-apex-chart [chartOptions]="chartOptions17"></app-apex-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End:: row-8 -->
+
+<!-- End:: row-9 -->
+<div class="row">
+    <div class="col-xxl-3 col-lg-6">
+        <app-spk-widget-webdesigner-reusablecard [image]="'./assets/images/faces/9.jpg'" [name]="'Daniel David'"
+            [title]="'Web Designer'" [description]="'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudan accusant. '"
+            [socialLinks]="[
+    { icon: 'ri-facebook-line text-primary border rounded-circle align-middle lh-1 border-opacity-25 p-2 border-primary me-1 d-inline-block fs-17 bg-primary-transparent' },
+    { icon: 'ri-twitter-x-line text-primary1 border rounded-circle align-middle lh-1 border-opacity-25 p-2 border-primary1 me-1 d-inline-block fs-17 bg-primary1-transparent' },
+    { icon: 'ri-linkedin-line text-primary2 border rounded-circle align-middle lh-1 border-opacity-25 p-2 border-primary2 me-1 d-inline-block fs-17 bg-primary2-transparent'},
+    { icon: 'ri-github-line text-primary3 border rounded-circle align-middle lh-1 border-opacity-25 p-2 border-primary3 me-1 d-inline-block fs-17 bg-primary3-transparent'},
+  ]">
+        </app-spk-widget-webdesigner-reusablecard>
+
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+     
+        <app-spk-widget-transaction-card [transactions]="[
+  { title: 'Shopping', date: '22 August 2024', iconClass: 'fe fe-shopping-bag', avatarClass: 'bg-primary border', percentage: '0.27%', isPositive: true },
+  { title: 'Traveling', date: '05 September 2024', iconClass: 'fe fe-shopping-bag', avatarClass: 'bg-primary1 border', percentage: '0.3%', isPositive: false },
+  { title: 'Credit card Bill', date: '18 September 2024', iconClass: 'fe fe-shopping-bag', avatarClass: 'bg-primary2 border', percentage: '1.2%', isPositive: false },
+  { title: 'Shop Rent', date: '13 October 2024', iconClass: 'fe fe-shopping-bag', avatarClass: 'bg-primary3 border', percentage: '1.7%', isPositive: true }
+]"></app-spk-widget-transaction-card>
+
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+        <div class="card custom-card">
+            <div class="card-header pb-0">
+                <div class="card-title">
+                    Orders Overview
+                </div>
+            </div>
+            <div class="card-body px-0">
+                <div id="recent-orders">
+                    <app-apex-chart [chartOptions]="chartOptions18"></app-apex-chart>
+                </div>
+                <div class="p-3 pt-0 pb-1">
+                    <div class="flex-fill d-flex gap-1 flex-wrap align-items-start justify-content-between">
+                        <div>
+                            <span class="fs-12 mb-1 d-block fw-medium">TOTAL ORDERS</span>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0 d-flex align-items-end">3,736<span
+                                        class="text-success fs-12 ms-2 op-1"><i
+                                            class="ti ti-trending-up align-middle me-1"></i>0.57%</span></h5>
+                            </div>
+                        </div>
+                        <div class="ms-auto">
+                            <div class="avatar avatar-md bg-primary-transparent">
+                                <i class="ti ti-box fs-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+        <app-spk-widget-budget-card 
+    [title]="'Monthly Budget'" 
+    [subtitle]="''"
+    [mainValue]="'$78,985'"
+    [increasedAmount]="'$35,800'"
+    [increasedPercentage]="'0.27%'">
+</app-spk-widget-budget-card>
+       
+    </div>
+</div>
+<!-- End:: row-9 -->

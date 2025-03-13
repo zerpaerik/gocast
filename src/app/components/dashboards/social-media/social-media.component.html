@@ -1,0 +1,445 @@
+<app-page-header title="Social Media" title1="Dashboards" activeTitle="Social Media" ></app-page-header>
+
+               <!-- Start::Row-1 -->
+               <div class="row">
+                <div class="col-xxl-8">
+                    <div class="row">
+                        @for(socialmedia of cardData;track $index){
+
+                            <div class="col-xl-4">
+                                
+                                        <app-spk-social-media-card
+                                        [socialmedia]="socialmedia" >
+                                        </app-spk-social-media-card>
+                                    </div>
+                        }
+                      
+                    </div>
+                </div>
+                <div class="col-xxl-4">
+                    <div class="card custom-card overflow-hidden">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title"> 
+                                Follow On Device
+                            </div>
+                            <a href="javascript:void(0);" class="btn btn-light btn-sm text-muted">
+                                View All
+                            </a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="row p-3 gx-3 align-items-center">
+                                <div class="col-xl-6 px-0">
+                                    <div id="follow-on-device">
+                                        <app-apex-chart [chartOptions]="chartOptions1"></app-apex-chart>
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <ul class="list-group list-group-flush border border-top mt-3">
+                                        <li class="list-group-item">
+                                            <div class="d-flex align-items-start justify-content-between">
+                                                <div class="session-type lh-1 mobile">
+                                                    <div class="fw-medium mb-1">Mobile</div>
+                                                    <span class="fs-12 text-muted">Increased By<span class="text-success fs-12 ms-1 fw-medium d-inline-block">1.67%</span></span>
+                                                </div>
+                                                <div class="lh-1 text-end">
+                                                    <span class="d-block fs-12 text-muted mb-1">Total</span>
+                                                    <span class="d-block fw-semibold mb-0">1,754</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="d-flex align-items-start justify-content-between">
+                                                <div class="session-type lh-1 tablet">
+                                                    <div class="fw-medium mb-1">Tablet</div>
+                                                    <span class="fs-12 text-muted">Increased By<span class="text-success fs-12 ms-1 fw-medium d-inline-block">0.46%</span></span>
+                                                </div>
+                                                <div class="lh-1 text-end">
+                                                    <span class="d-block fs-12 text-muted mb-1">Total</span>
+                                                    <span class="d-block fw-semibold mb-0">1,234</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="d-flex align-items-start justify-content-between">
+                                                <div class="session-type desktop lh-1">
+                                                    <div class="fw-medium mb-1">Desktop</div>
+                                                    <span class="fs-12 text-muted">Decresed By<span class="text-danger fs-12 ms-1 fw-medium d-inline-block">3.43%</span></span>
+                                                </div>
+                                                <div class="lh-1 text-end">
+                                                    <span class="d-block fs-12 text-muted mb-1">Total</span>
+                                                    <span class="d-block fw-semibold mb-0">878</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End::Row-1 -->
+
+            <!-- Start::Row-2 -->
+            <div class="row">
+                <div class="col-xxl-3">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Suggestions
+                            </div>
+                            <a href="javascript:void(0);" class="btn btn-light btn-sm text-muted">
+                                View All
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled personal-favourite mb-0">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/2.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Socrates Itumay</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/3.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Ryan Gercia</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/10.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Prax Bhav</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/12.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Jackie Chen</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/5.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Samantha Sam</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/15.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill">
+                                            <span class="fw-medium d-block mb-0">Robert Lewis</span>
+                                            <span class="text-muted d-block fs-12">3 Mutual Friends</span>
+                                        </div>
+                                        <div>
+                                            <button aria-label="buton" type="button" class="btn btn-sm btn-icon btn-primary"><i class="ri-user-add-line"></i></button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-6">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between flex-wrap">
+                            <div class="card-title">
+                                Audience Statistics
+                            </div>
+                            <div class="d-flex gap-2">
+                                <div class="btn btn-outline-light border btn-full btn-sm">Today</div>
+                                <div class="btn btn-outline-light border btn-full btn-sm">Weakly</div>
+                                <div class="btn btn-light border btn-full btn-sm">Yearly</div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="audience" class="">
+                                <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Requests
+                            </div>
+                            <a href="javascript:void(0);" class="btn btn-light btn-sm text-muted">
+                                View All
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled personal-favourite mb-0">
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/2.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Socrates Itumay</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/3.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Ryan Gercia</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/10.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Prax Bhav</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/12.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Jackie Chen</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/5.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Samantha Sam</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="d-flex align-items-center">
+                                        <div class="me-2">
+                                            <span class="avatar avatar-sm">
+                                                <img src="./assets/images/faces/15.jpg" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="flex-fill text-truncate">
+                                            <span class="fw-medium d-block mb-0">Robert Lewis</span>
+                                            <span class="text-muted d-block fs-12 w-75 text-truncate">want's to add you as a friend </span>
+                                        </div>
+                                        <div class="btn-list text-nowrap">
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-success-light">
+                                                <i class="ri-check-line"></i>
+                                            </button>
+                                            <button aria-label="buton" type="button" class="btn btn-icon btn-sm btn-danger-light me-0">
+                                                <i class="ri-close-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End::Row-2 -->
+
+            <!-- Start::Row-3 -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card custom-card">
+                        <div class="card-header justify-content-between">
+                            <div class="card-title">
+                                Social Media Performance
+                            </div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <div>
+                                    <input class="form-control form-control-sm" type="text" placeholder="Search Here">
+                                </div>
+                                <spk-dropdowns [Customclass]="'dropdown'" [title]="'Sort By'" [class]="'btn btn-primary btn-sm btn-wave waves-effect waves-light no-caret'" [Icon]="true" [IconClass]="'ri-arrow-down-s-line align-middle ms-1 d-inline-block'" 
+                                [Menuclass]="'dropdown-menu'"  >
+                                <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">New</a></li>
+                                <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Popular</a></li>
+                                <li><a class="dropdown-item" ngbDropdownItem href="javascript:void(0);">Relevant</a></li>
+                            </spk-dropdowns>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <app-spk-reusable-tables [columns]="socialMediColumns" tableClass="text-nowrap table-bordered"
+                                [showCheckbox]="false">
+                                @for(social of socials;track $index){
+                                    <tr>
+                                        <td>
+                                            {{social.date}}
+                                        </td>
+                                        <td>
+                                           <div class="d-flex align-items-center gap-2">
+                                                <span class="avatar avatar-sm bg-{{social.bg}}-transparent">
+                                                    <i class="ri-{{social.icon}}-fill fs-16"></i>
+                                                </span>
+                                                <span class="fw-medium">{{social.title}}</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                            {{social.likes}}
+                                        </td>
+                                        <td>
+                                            {{social.comments}}
+                                        </td>
+                                        <td>
+                                            {{social.shares}}
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{social.bg1}}-transparent">{{social.impressions}}</span>
+                                        </td>
+                                        <td>
+                                            {{social.percent}}
+                                        </td>
+                                        <td>
+                                            {{social.followers}}
+                                        </td>
+                                        <td>
+                                            {{social.following}}
+                                        </td>
+                                    </tr>
+                                }
+                                </app-spk-reusable-tables>
+                          
+                            </div>
+                        </div>
+                        <div class="card-footer border-top-0"> 
+                            <div class="d-flex align-items-center"> 
+                                <div> Showing 5 Entries <i class="bi bi-arrow-right ms-2 fw-semibold"></i> </div>
+                                <div class="ms-auto"> 
+                                <nav aria-label="Page navigation" class="pagination-style-4"> 
+                                    <ul class="pagination mb-0"> 
+                                        <li class="page-item disabled"> <a class="page-link" href="javascript:void(0);"> Prev </a> </li>
+                                            <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li> 
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li> 
+                                            <li class="page-item"> <a class="page-link text-primary" href="javascript:void(0);"> next </a> </li> 
+                                        </ul> 
+                                    </nav> 
+                                </div> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End::Row-3 -->

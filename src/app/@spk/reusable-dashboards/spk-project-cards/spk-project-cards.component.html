@@ -1,0 +1,21 @@
+
+    <div class="card custom-card overflow-hidden">
+      <div class="card-body">
+        <div class="mb-3 d-flex align-items-start justify-content-between">
+          <span class="avatar avatar-sm" [ngClass]="avatarClass">
+            <i [class]="iconClass"></i>
+          </span>
+          <span class="badge " [ngClass]="badgeClass">{{ percentage }}</span>
+        </div>
+        <div class="d-flex align-items-end justify-content-between flex-wrap">
+          <div class="flex-shrink-0">
+            <div class="text-muted mb-1">{{ title }}</div>
+            <h4 class="mb-0 fs-20 fw-medium">{{ count }}</h4>
+          </div>
+          <div [id]="chartId" class="flex-shrink-0 text-end ms-auto">
+            <app-apex-chart [chartOptions]="chartOptions"></app-apex-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  

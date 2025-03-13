@@ -1,0 +1,68 @@
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <h4 class="card-title mb-0">Planes de Salud</h4>
+      <button class="btn btn-primary" (click)="crearNuevoPlan()">
+        <i class="ti ti-plus"></i> Nuevo Plan
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- Tabla de Planes -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Usos Mensuales</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plan of planes">
+            <td>{{ plan.nombre }}</td>
+            <td>{{ plan.descripcion }}</td>
+            <td class="text-center">{{ plan.usosMensuales }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm me-2" (click)="editarPlan(plan.id)">
+                <i class="ti ti-edit"></i> Editar
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="confirmarEliminacion(plan.id)">
+                <i class="ti ti-trash"></i> Eliminar
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="planes.length === 0">
+            <td colspan="4" class="text-center">No hay planes registrados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal" [class.show]="mostrarConfirmacion" 
+         [style.display]="mostrarConfirmacion ? 'block' : 'none'">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmar Eliminación</h5>
+            <button type="button" class="btn-close" (click)="cerrarConfirmacion()"></button>
+          </div>
+          <div class="modal-body">
+            ¿Está seguro que desea eliminar este plan de salud?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="cerrarConfirmacion()">
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-danger" (click)="eliminarPlan()">
+              Confirmar Eliminación
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop fade show" *ngIf="mostrarConfirmacion"></div>
+  </div>
+</div>

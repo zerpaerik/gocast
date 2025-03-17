@@ -1,0 +1,1 @@
+import"./chunk-BI7C37SH.js";var t=[{path:"",loadComponent:()=>import("./chunk-43SQHRLG.js").then(o=>o.TarifasComponent)},{path:"crear",loadComponent:()=>import("./chunk-A2BHEFTM.js").then(o=>o.TarifasFormComponent)},{path:"editar/:id",loadComponent:()=>import("./chunk-A2BHEFTM.js").then(o=>o.TarifasFormComponent)}];export{t as TarifasRoutes};

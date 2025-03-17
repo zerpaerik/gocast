@@ -285,6 +285,21 @@ export const admin: Routes = [
     {
       path: 'map-proveedores',
       loadChildren: () => import('./map-proveedores/map-proveedores.route').then(r => r.MapProveedoresRoutingModule)
+    },
+    {
+      path: 'gestion',
+      children: [
+        {
+          path: 'roles',
+          loadComponent: () =>
+            import('./gestion/roles/roles.component').then((m) => m.RolesComponent)
+        },
+        {
+          path: 'roles/nuevo',
+          loadComponent: () =>
+            import('./gestion/roles/roles-new/roles-new.component').then((m) => m.RolesNewComponent)
+        }
+      ]
     }
   ]}
 ];
@@ -293,4 +308,6 @@ export const admin: Routes = [
   imports: [RouterModule.forChild(admin)],
   exports: [RouterModule],
 })
-export class appsRoutingModule { }
+export class appsRoutingModule {
+  static routes = admin;
+}

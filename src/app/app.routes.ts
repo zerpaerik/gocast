@@ -15,6 +15,10 @@ export const App_Route: Routes = [
     loadComponent: () =>
       import('../app/authentication/login/login.component').then((m) => m.LoginComponent),
   },
+  {
+    path: 'gestion/roles',
+    loadChildren: () => import('../app/components/apps/gestion/roles/roles.module').then(m => m.RolesModule),
+  },
   { path: '', component: MainLayoutComponent, children: content },
   { path: '', component: AuthenticationLayoutComponent, children: authen },
   { path: '', component: LandingLayoutComponent, children: landing },

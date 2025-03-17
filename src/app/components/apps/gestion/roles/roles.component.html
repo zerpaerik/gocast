@@ -1,48 +1,56 @@
-<app-page-header title="Roles" title1="Gestión" activeTitle="">Roles</app-page-header>
+<div class="page-header">
+    <div>
+        <h2 class="main-content-title tx-24 mg-b-5">Roles</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Gestión</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Roles</li>
+        </ol>
+    </div>
+</div>
 
 <!-- Start:: row-1 -->
 <div class="row">
- 
     <div class="col-xl-12">
-           
-            <div class="table-responsive">
-                <div align="right" class="card-header justify-content-between">
-                    <div class="card-title">
-                    </div>
-                    <div class="">
-                        <a class="btn btn-primary btn-wave" href="/apps/gestion/roles-new">Agregar</a>
-                    </div>
+        <div class="card custom-card">
+            <div class="card-header justify-content-between">
+                <div class="card-title">Lista de Roles</div>
+                <div>
+                    <button class="btn btn-primary btn-wave" (click)="crearNuevoRol()">
+                        <i class="ri-add-line me-1"></i>Agregar Rol
+                    </button>
                 </div>
-
-             
-                <br>
-                <app-spk-reusable-tables [columns]="borderColumn" tableClass="text-nowrap table-bordered"
-                    [showCheckbox]="false">
-                    
-                    @for(table of borderTables;track $index){
-                    <tr>
-                        <th scope="row">
-                            <div class="d-flex align-items-center">
-                                {{table.rol}}
-                            </div>
-                        </th>
-                        <td><span class="badge">{{table.status}}</span></td>
-                        <td>
-                            <div class="hstack gap-2 flex-wrap">
-                                <a href="javascript:void(0);" class="text-info fs-14 lh-1"><i
-                                        class="ri-edit-line"></i></a>
-                                <a href="javascript:void(0);" class="text-danger fs-14 lh-1"><i
-                                        class="ri-delete-bin-5-line"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-
-                    }
-                </app-spk-reusable-tables>
-
             </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <app-spk-reusable-tables 
+                        [columns]="borderColumn" 
+                        tableClass="text-nowrap table table-bordered table-hover">
+                        @for(table of borderTables;track $index){
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    {{table.rol}}
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge bg-success-transparent">{{table.status}}</span>
+                            </td>
+                            <td>
+                                <div class="hstack gap-2 flex-wrap">
+                                    <a href="javascript:void(0);" class="text-info fs-14 lh-1">
+                                        <i class="ri-edit-line"></i>
+                                    </a>
+                                    <a href="javascript:void(0);" class="text-danger fs-14 lh-1">
+                                        <i class="ri-delete-bin-5-line"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                    </app-spk-reusable-tables>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- End:: row-1 -->
-
-

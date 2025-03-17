@@ -89,11 +89,10 @@ export class NavService implements OnDestroy {
 
   MENUITEMS: Menu[] = [
     // Dashboard
-   
-    //PAGES
+
     { headTitle: '' },
     {
-      title: 'Gestión',
+      title: 'Acceso Rápido',
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
     </svg>`,
@@ -103,7 +102,116 @@ export class NavService implements OnDestroy {
       children: [
       
         {
-          title: 'Funcionalidades',
+          title: 'Dashboard',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/dashboard-servicios',
+        },
+        {
+          title: 'Proveedores en mapa',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/apps/map/proveedores',
+        },
+
+      ],
+    },
+
+      //PAGES
+      {
+        title: 'Solicitudes',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>`,
+        dirchange: false,
+        type: 'sub',
+        active: false,
+        children: [
+          {
+            title: 'Consulta',
+            dirchange: false,
+            type: 'link',
+            active: false,
+            selected: false,
+            path: '/apps/solicitudes/search-solicitudes',
+          },
+          {
+            title: 'Nueva Solicitud',
+            dirchange: false,
+            type: 'link',
+            active: false,
+            selected: false,
+            path: '/apps/solicitudes/new-solicitud',
+          },
+        ],
+      },
+
+        
+     
+  
+    {
+      title: 'Proveedores',
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
+    </svg>`,
+      dirchange: false,
+      type: 'sub',
+      active: false,
+      children: [
+        {
+          title: 'Proveedores',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/proveedores',
+        },
+        {
+          title: 'Vehículos de alta gama',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/apps/vehiculos/vehiculos',
+        },
+        {
+          title: 'Tarifario de asistencia vial',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/apps/tarifarios'
+        },
+        {
+          title: 'Tarifas de servicios viales',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/apps/tarifas'
+        }
+       
+      ],
+    },
+   
+    //PAGES
+    { headTitle: '' },
+    {
+      title: 'Usuarios',
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
+    </svg>`,
+      dirchange: false,
+      type: 'sub',
+      active: false,
+      children: [
+      
+        {
+          title: 'Usuarios administrativos',
           dirchange: false,
           type: 'link',
           active: false,
@@ -121,126 +229,67 @@ export class NavService implements OnDestroy {
 
       ],
     },
-
-    //PAGES
-    { headTitle: '' },
-    {
-      title: 'Vehículos',
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-    </svg>`,
-      dirchange: false,
-      type: 'sub',
-      active: false,
-      children: [
-      
-        {
-          title: 'Listado',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/vehiculos/vehiculos',
-        },
-      
-
-      ],
-    },
-
-     //PAGES
-     { headTitle: '' },
-     {
-       title: 'Seguros',
-       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-     </svg>`,
-       dirchange: false,
-       type: 'sub',
-       active: false,
-       children: [
-       
-         {
-           title: 'Listado',
+      //PAGES
+      { headTitle: '' },
+      {
+        title: 'Seguros',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
+      </svg>`,
+        dirchange: false,
+        type: 'sub',
+        active: false,
+        children: [
+        
+          {
+            title: 'Compañias de seguro',
+            dirchange: false,
+            type: 'link',
+            active: false,
+            selected: false,
+            path: '/apps/seguros/seguros',
+          },
+          {
+           title: 'Asegurados',
            dirchange: false,
-           type: 'link',
+           type: 'sub',
            active: false,
            selected: false,
-           path: '/apps/seguros/seguros',
-         },
-       
+           children : [
+             {
+               title: 'Creación',
+               dirchange: false,
+               type: 'link',
+               active: false,
+               selected: false,
+               path: '/apps/asegurados/new-asegurado',
+             },
+             {
+              title: 'Carga masiva',
+              dirchange: false,
+              type: 'link',
+              active: false,
+              selected: false,
+              path: '/apps/asegurados/upload-asegurados',
+            },
+            {
+              title: 'Consulta',
+              dirchange: false,
+              type: 'link',
+              active: false,
+              selected: false,
+              path: '/apps/asegurados/search-asegurados',
+            },
  
-       ],
-     },
-
-     //PAGES
-     { headTitle: '' },
-     {
-       title: 'Asegurados',
-       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-     </svg>`,
-       dirchange: false,
-       type: 'sub',
-       active: false,
-       children: [
-       
-         {
-           title: 'Creación',
-           dirchange: false,
-           type: 'link',
-           active: false,
-           selected: false,
-           path: '/apps/asegurados/new-asegurado',
+           ]
          },
-         {
-          title: 'Carga masiva',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/asegurados/upload-asegurados',
-        },
-        {
-          title: 'Consulta',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/asegurados/search-asegurados',
-        },
-       
+        
+  
+        ],
+      },
  
-       ],
-     },
-     {
-      title: 'Solicitudes',
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-    </svg>`,
-      dirchange: false,
-      type: 'sub',
-      active: false,
-      children: [
-        {
-          title: 'Consulta',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/solicitudes/search-solicitudes',
-        },
-        {
-          title: 'Nueva Solicitud',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/solicitudes/new-solicitud',
-        },
-      ],
-    },
     {
-      title: 'Planes',
+      title: 'Salud y Mascotas',
       icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
     </svg>`,
@@ -249,7 +298,15 @@ export class NavService implements OnDestroy {
       active: false,
       children: [
         {
-          title: 'Planes',
+          title: 'Consultas realizadas',
+          dirchange: false,
+          type: 'link',
+          active: false,
+          selected: false,
+          path: '/apps/planes'
+        },
+        {
+          title: 'Planes de salud',
           dirchange: false,
           type: 'link',
           active: false,
@@ -257,33 +314,6 @@ export class NavService implements OnDestroy {
           path: '/apps/planes'
         },
        
-      ],
-    },
-    {
-      title: 'Tarifarios',
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-    </svg>`,
-      dirchange: false,
-      type: 'sub',
-      active: false,
-      children: [
-        {
-          title: 'Asistencia Vial',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/tarifarios'
-        },
-        {
-          title: 'Servicios Viales',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/tarifas'
-        }
        
       ],
     },
@@ -323,26 +353,10 @@ export class NavService implements OnDestroy {
        
       ],
     },
-    {
-      title: 'Proveedores',
-      icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 side-menu__icon" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />
-    </svg>`,
-      dirchange: false,
-      type: 'sub',
-      active: false,
-      children: [
-        {
-          title: 'Mapa',
-          dirchange: false,
-          type: 'link',
-          active: false,
-          selected: false,
-          path: '/apps/map-proveedores'
-        },
-       
-      ],
-    },
+
+   
+  
+  
     
    
    

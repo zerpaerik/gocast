@@ -90,7 +90,11 @@ export const content: Routes = [
       {
         path: 'dashboard-servicios',
         loadChildren: () => import('../../../app/components/apps/dashboard-servicios/dashboard-servicios.module').then(m => m.DashboardServiciosModule)
-    }
+      },
+      {
+        path: 'proveedores',
+        loadChildren: () => import('../../../app/components/apps/proveedores/proveedores.module').then(m => m.ProveedoresModule)
+      }
    
     ],
   },

@@ -1,0 +1,128 @@
+
+// Variables
+$primary-color: #0d6efd;
+$light-gray: #f8f9fa;
+$border-color: #dee2e6;
+$text-muted: #6c757d;
+
+// Card styles
+.card {
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  .card-title {
+    color: #212529;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+
+// Form styles
+.form-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid $border-color;
+  padding: 0.5rem 0.75rem;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+// Permission sections
+.permission-section {
+  padding: 1rem 0;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  h6 {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+// Checkboxes
+.form-check {
+  margin-bottom: 0.5rem;
+  padding-left: 1.75rem;
+
+  .form-check-input {
+    border-color: $border-color;
+    
+    &:checked {
+      background-color: $primary-color;
+      border-color: $primary-color;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+  }
+
+  .form-check-label {
+    color: #212529;
+    font-size: 0.875rem;
+  }
+}
+
+// Buttons
+.btn {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.2s;
+
+  &.btn-light {
+    background-color: $light-gray;
+    border-color: $border-color;
+    color: #212529;
+
+    &:hover {
+      background-color: darken($light-gray, 5%);
+    }
+  }
+
+  &.btn-primary {
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  
+  a {
+    color: $text-muted;
+    text-decoration: none;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .col-md-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .permission-section {
+    padding: 0.75rem 0;
+  }
+}

@@ -1,63 +1,91 @@
-import { Component, Renderer2 } from '@angular/core';
-import { ShowcodeCardComponent } from '../../../../../shared/common/includes/showcode-card/showcode-card.component';
-import * as prismCodeData from '../../../../../shared/prismData/forms/validations'
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../../../shared/sharedmodule';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { DOCUMENT } from '@angular/common';
 
 
 @Component({
-  selector: 'new-rol',
-  standalone: true,
-  imports: [SharedModule,ShowcodeCardComponent],
+  selector: 'app-roles-new',
+  standalone: true,  // Agregar esta línea
+  imports: [        // Agregar este array de imports
+    CommonModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
   templateUrl: './roles-new.component.html',
-  styleUrl: './roles-new.component.scss'
+  styleUrls: ['./roles-new.component.scss']
 })
-export class RolesNewComponent {
-  prismCode = prismCodeData;
-
-
+export class RolesNewComponent implements OnInit {
+  rolForm!: FormGroup;
 
   constructor(
-    
+    private fb: FormBuilder,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private renderer: Renderer2,
-    private toastr: ToastrService 
+    private toastr: ToastrService
   ) {
-
-
+    this.initForm();
   }
 
-  ngOnInit(): void {
-   
-;
+  ngOnInit(): void {}
+
+  private initForm(): void {
+    this.rolForm = this.fb.group({
+      nombre: ['', Validators.required],
+      descripcion: [''],
+      // Acceso
+      dashboardGeneral: [false],
+      serviciosActivos: [false],
+      proveedoresMapa: [false],
+      // Solicitudes
+      consultarSolicitudes: [false],
+      agregarSolicitudes: [false],
+      editarSolicitudes: [false],
+      // Proveedores
+      proveedoresAsistencia: [false],
+      vehiculosAltaGama: [false],
+      tarifarioVial: [false],
+      historialTarifas: [false],
+      // Usuarios
+      usuariosAdmin: [false],
+      gestionRoles: [false],
+      // Seguros
+      companiasSeguros: [false],
+      gestionAsegurados: [false],
+      // Salud y Mascotas
+      gestionPlanesSalud: [false],
+      consultasMedicas: [false],
+      // Reportes
+      reportesFinancieros: [false],
+      reportesOperativos: [false],
+      reportesSatisfaccion: [false],
+      // Configuración General
+      ajustesSistema: [false]
+    });
   }
 
-
-
-
-  //angular
-  public newFunForm!: FormGroup;
-  public error: any = '';
-  
-  get form() {
-    return this.newFunForm.controls;
-  }
-
-
-  Submit() {
-      console.log('llego al formulario');
-      console.log(this.newFunForm)
-      this.router.navigate(['/apps/gestion/funcionalidades']);
-      this.toastr.success('Registro exitoso','GoCast Admin', {
+  onSubmit(): void {
+    if (this.rolForm.valid) {
+      // Aquí iría la lógica para guardar el rol
+      console.log('Rol a guardar:', this.rolForm.value);
+      
+      this.toastr.success('Rol creado exitosamente', 'GoCast Admin', {
         timeOut: 3000,
-        positionClass: 'toast-top-right',
+        positionClass: 'toast-top-right'
       });
-  
-  
+      
+      this.router.navigate(['/apps/gestion/roles']);
+    } else {
+      this.toastr.error('Por favor complete los campos requeridos', 'Error', {
+        timeOut: 3000,
+        positionClass: 'toast-top-right'
+      });
+    }
   }
 
+  cancelar(): void {
+    this.router.navigate(['/apps/gestion/roles']);
+  }
 }

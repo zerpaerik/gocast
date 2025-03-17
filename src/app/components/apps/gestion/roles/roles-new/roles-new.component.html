@@ -1,191 +1,212 @@
-<div class="row">
-    <div class="col-xl-12">
-        <app-showcode-card [title]="' Crear Rol'" [prism]="prismCode.validationTS1">
+<!-- Breadcrumb -->
+<div class="d-flex align-items-center mb-3">
+    <a href="/usuarios" class="text-muted">Usuarios</a>
+    <span class="mx-2">></span>
+    <span class="text-primary">Crear un nuevo rol</span>
+</div>
 
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title mb-4">Creación de un nuevo rol</h5>
 
-            <form class="row g-3">
-                
-                <div class="col-md-4">
-                    <label for="validationDefault01" class="form-label">Nombre de rol</label>
-                    <input type="text" class="form-control" id="validationDefault01"
-                        required formControlName="name" >
-                </div>
-                <div class="col-md-8">
-                    <label for="validationDefault02" class="form-label">Descripción</label>
-                    <input type="text" class="form-control" id="validationDefault02"
-                         required placeholder="Detalle del rol" formControlName="name3">
-                </div>
-                <br><br><br><br><br>
+        <form [formGroup]="rolForm" (ngSubmit)="onSubmit()" class="row g-3">
+            <!-- Campos principales -->
+            <div class="col-md-6 mb-3">
+                <label for="nombre" class="form-label">Nombre del rol *</label>
+                <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre">
+            </div>
 
-                <div class="row">
-                    <label for="validationDefault01" class="form-label">Marque las opciones a las que el rol tendra acceso: </label>
-                </div>
+            <div class="col-md-6 mb-3">
+                <label for="descripcion" class="form-label">Descripción breve del rol</label>
+                <input type="text" class="form-control" id="descripcion" formControlName="descripcion" placeholder="Descripción">
+            </div>
 
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Proveedores
-                        </label>
-                    </div>
+            <!-- Sección de Permisos -->
+            <div class="col-12">
+                <h6 class="mb-3">Permisos</h6>
 
-                </div>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Consultas de clientes
-                        </label>
-                    </div>
-
-                </div>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Consultas de pólizas
-                        </label>
-                    </div>
-
-                </div>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Reportes
-                        </label>
-                    </div>
-
-                </div>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ventas
-                        </label>
-                    </div>
-
-                </div>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>
-                <br><br>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>
-                <br><br>
-                <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>  <div class="col-md-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Usuarios
-                        </label>
-                    </div>
-
-                </div>
-                <br>
-
-               
-                
-                <div class="col-12">
-                    <div class="">
-                        <a class="btn btn-primary btn-wave" href="/apps/gestion/roles">Enviar</a>
+                <!-- Acceso -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Acceso</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="dashboardGeneral" id="dashboardGeneral">
+                                <label class="form-check-label" for="dashboardGeneral">Dashboard General</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="serviciosActivos" id="serviciosActivos">
+                                <label class="form-check-label" for="serviciosActivos">Servicios activos</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="proveedoresMapa" id="proveedoresMapa">
+                                <label class="form-check-label" for="proveedoresMapa">Proveedores en mapa</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </form>
-            </app-showcode-card>
-    
+
+                <!-- Solicitudes -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Solicitudes</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="consultarSolicitudes" id="consultarSolicitudes">
+                                <label class="form-check-label" for="consultarSolicitudes">Consultar Solicitudes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="agregarSolicitudes" id="agregarSolicitudes">
+                                <label class="form-check-label" for="agregarSolicitudes">Agregar Solicitudes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="editarSolicitudes" id="editarSolicitudes">
+                                <label class="form-check-label" for="editarSolicitudes">Editar Solicitudes</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proveedores -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Proveedores</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="proveedoresAsistencia" id="proveedoresAsistencia">
+                                <label class="form-check-label" for="proveedoresAsistencia">Proveedores Asistencia Vial</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="vehiculosAltaGama" id="vehiculosAltaGama">
+                                <label class="form-check-label" for="vehiculosAltaGama">Vehículos Alta Gama</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="tarifarioVial" id="tarifarioVial">
+                                <label class="form-check-label" for="tarifarioVial">Tarifario Vial</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="historialTarifas" id="historialTarifas">
+                                <label class="form-check-label" for="historialTarifas">Historial Tarifas</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usuarios -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Usuarios</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="usuariosAdmin" id="usuariosAdmin">
+                                <label class="form-check-label" for="usuariosAdmin">Usuarios Administrativos</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="gestionRoles" id="gestionRoles">
+                                <label class="form-check-label" for="gestionRoles">Gestión Roles y Permisos</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seguros -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Seguros</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="companiasSeguros" id="companiasSeguros">
+                                <label class="form-check-label" for="companiasSeguros">Compañías de Seguros</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="gestionAsegurados" id="gestionAsegurados">
+                                <label class="form-check-label" for="gestionAsegurados">Gestión Asegurados</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salud y Mascotas -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Salud y Mascotas</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="gestionPlanesSalud" id="gestionPlanesSalud">
+                                <label class="form-check-label" for="gestionPlanesSalud">Gestión Planes de Salud</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="consultasMedicas" id="consultasMedicas">
+                                <label class="form-check-label" for="consultasMedicas">Consultas Médicas Realizadas</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reportes -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Reportes</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="reportesFinancieros" id="reportesFinancieros">
+                                <label class="form-check-label" for="reportesFinancieros">Reportes Financieros</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="reportesOperativos" id="reportesOperativos">
+                                <label class="form-check-label" for="reportesOperativos">Reportes Operativos</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="reportesSatisfaccion" id="reportesSatisfaccion">
+                                <label class="form-check-label" for="reportesSatisfaccion">Reportes de Satisfacción</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuración General -->
+                <div class="permission-section mb-4">
+                    <h6 class="text-muted mb-3">Configuración General</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" formControlName="ajustesSistema" id="ajustesSistema">
+                                <label class="form-check-label" for="ajustesSistema">Ajustes del Sistema</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="col-12 d-flex justify-content-end gap-2 mt-4">
+                <button type="button" class="btn btn-light" (click)="cancelar()">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar rol</button>
+            </div>
+        </form>
     </div>
 </div>
